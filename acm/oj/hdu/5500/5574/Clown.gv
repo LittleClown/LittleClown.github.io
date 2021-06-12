@@ -1,0 +1,15 @@
+digraph G {
+    rankdir = LR
+    node [shape = circle];
+    node1[label = "red", color=red]
+    node2[label = "green", color=green]
+    node3[label = "orange", color=orange]
+    node4[label = "blue", color=blue]
+    node5[label = "violet", color=violet]
+
+    node1 -> node2[color=orange, label = "+1"];
+    node2 -> node3[color=orange, label = "+1"];
+    node2 -> node4;
+    node4 -> node5;
+    rotate = 270;
+}

@@ -1,0 +1,152 @@
+\documentclass[a4paper]{ctexart}
+\usepackage{graphicx,graphpap}
+\usepackage{amsmath,amssymb}
+\usepackage{indentfirst}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{longtable}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{Tabbing}
+\usepackage{caption}
+\usepackage{ifthen}
+\usepackage{lineno}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{calc}
+\usepackage{cite}
+\usepackage{CJK}
+\usepackage{bm}
+
+\hypersetup{colorlinks,urlcolor=purple}
+\geometry{left=.5cm,right=.5cm,top=.5cm,bottom=.5cm}
+% \paperwidth  12 true cm
+\paperheight 15 true cm
+
+\lstset{
+  numbers=left,stepnumber=1,numberstyle=\scriptsize,numbersep=7pt,
+  showstringspaces=false,extendedchars=false,escapeinside=``,tabsize=4,
+  identifierstyle=\color{black},
+  keywordstyle=\color{violet}\bfseries,
+  commentstyle=\color{blue}small\bfseries
+}
+
+\begin{document}
+
+  \begin{center}
+    \tikzpicture
+      \draw (0,0) -- (10,0);
+      \draw[violet] (1cm,-8pt) -- (1cm,8pt);
+      \fill[violet] (5,0) circle(2pt); 
+      \draw[violet] (9cm,-8pt) -- (9cm,8pt);
+
+      \fill[blue] (2.5,0) circle(2pt);
+      \fill[blue] (7.5,0) circle(2pt);
+      \node[below] (i') at (2.5,0) {$i'$};
+      \node[below] (j) at (5,0) {$j$}; 
+      \node[below] (i) at (7.5,0) {$i$};
+      \node[above=16pt] at (j) {\makebox[8cm]{\downbracefill}};
+      \node[above=20pt] at (j) {以 $j$ 为中心的最长回文串};
+      \draw[blue] (1.75cm,-4pt) -- (1.75cm,4pt);
+      \draw[blue] (3.25cm,-4pt) -- (3.25cm,4pt);
+      \node[below=6pt] at (i') {\makebox[1.5cm]{\upbracefill}};
+      \node[below=13pt] at (i') {以 $i'$ 为中心的最长回文串};
+    \endtikzpicture
+  \end{center}
+
+  \vskip 2em
+
+  \begin{center}
+    \tikzpicture
+      \draw (0,0) -- (10,0);
+      \draw[violet] (1cm,-8pt) -- (1cm,8pt);
+      \fill[violet] (5,0) circle(2pt); 
+      \draw[violet] (9cm,-8pt) -- (9cm,8pt);
+
+      \fill[blue] (2.5,0) circle(2pt);
+      \fill[blue] (7.5,0) circle(2pt);
+      \node[below] (i') at (2.5,0) {$i'$};
+      \node[below] (j) at (5,0) {$j$}; 
+      \node[below] (i) at (7.5,0) {$i$};
+      %\node[above=16pt] at (j) {\makebox[8cm]{\downbracefill}};
+      %\node[above=20pt] at (j) {以 $j$ 为中心的最长回文串};
+      \draw[blue] (1.75cm,-4pt) -- (1.75cm,4pt);
+      \draw[blue] (3.25cm,-4pt) -- (3.25cm,4pt);
+      %\node[below=6pt] at (i') {\makebox[1.5cm]{\upbracefill}};
+      %\node[below=13pt] at (i') {以 $i'$ 为中心的最长回文串};
+
+      \fill[orange] (1.5,0) circle(2pt);
+      \fill[orange] (3.5,0) circle(2pt);
+      \fill[orange] (6.5,0) circle(2pt);
+      \fill[orange] (8.5,0) circle(2pt);
+      \node[below] (k') at (1.5,0) {$k'$};
+      \node[below] (k'_i) at (3.5,0) {$k'_i$};
+      \node[below] (k_i) at (6.5,0) {$k_i$};
+      \node[below] (k)  at (8.5,0) {$k$};
+    \endtikzpicture
+  \end{center}
+
+  \vskip 2em
+
+  \begin{center}
+    \tikzpicture
+      \draw (0,0) -- (10,0);
+      \draw[violet] (1cm,-8pt) -- (1cm,8pt);
+      \fill[violet] (5,0) circle(2pt); 
+      \draw[violet] (9cm,-8pt) -- (9cm,8pt);
+
+      \fill[blue] (2.5,0) circle(2pt);
+      \fill[blue] (7.5,0) circle(2pt);
+      \node[below] (i') at (2.5,0) {$i'$};
+      \node[below] (j) at (5,0) {$j$}; 
+      \node[below] (i) at (7.5,0) {$i$};
+      \node[above=16pt] at (j) {\makebox[8cm]{\downbracefill}};
+      \node[above=20pt] at (j) {以 $j$ 为中心的最长回文串};
+      \draw[blue] (0.25cm,-4pt) -- (0.25cm,4pt);
+      \draw[blue] (4.75cm,-4pt) -- (4.75cm,4pt);
+      \node[below=6pt] at (i') {\makebox[4.5cm]{\upbracefill}};
+      \node[below=13pt] at (i') {以 $i'$ 为中心的最长回文串};
+    \endtikzpicture
+  \end{center}
+
+
+ % \tikzpicture
+ %   \draw[color=violet] plot[smooth] coordinates {(0,0) (1,2) (2,1) (4,3)};
+ %   \draw[color=blue] plot[smooth,tension=05] coordinates {(0,0) (1,2) (2,1) (4,3)};
+ % \endtikzpicture
+
+
+ % \begin{tikzpicture}[domain=-3:3]
+ %   \draw[->] (-3.2,0) -- (3.2,0) node[below] {$x$};
+ %   \draw[->] (0,-3.2) -- (0,3.2) node[above] {$f(x)$};
+ %   \draw[very thin,color=gray] (-3,-3) grid (3,3);
+ % \end{tikzpicture}
+
+
+ % \begin{tikzpicture}[x={(-1cm,-1cm)},y={(1cm,0cm)},z={(0cm,1cm)]}]
+ %   \draw[->] (0,0,-1) -- (0,0,2) node[above] {$z$};
+ %   \draw[->] (0,-1,0) -- (0,2,0) node[right] {$y$};
+ %   \draw[->] (-1,0,0) -- (1.414,0,0) node[below] {$x$};
+ %   \draw[color=red] plot[domain=0:2*pi] ({sin(\x r)},{cos(\x r)},2);
+ %   \draw[color=orange] (0,0,0) -- (0,-1,2) (0,0,0) -- (0,1,2);
+ %   \draw[color=orange] (0,0,0) -- (-1,0,2) (0,0,0) -- (1,0,2);
+ % \end{tikzpicture}
+ % 
+ % \begin{tikzpicture} 
+ %   \begin{axis}[view={120}{30},xlabel=$x$,ylabel=$y$]
+ %     \addplot3[domain=-2:2,y domain=-2:2,surf]{1.0/(e^x)+1.0/(e^y)};
+ %   \end{axis}
+ % \end{tikzpicture}
+
+
+
+
+\end{document}
+

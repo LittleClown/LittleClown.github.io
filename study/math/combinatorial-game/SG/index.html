@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>组合游戏基础之 SG 函数和 SG 定理 | Clown's Blog</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="NP 状态描述 无法进行任何移动的局面为 P-position 可以移动到 P-position 的局面为 N-position 任意移动都到达 N-position 的局面为 P-position  Nim 游戏Nim 游戏是组合游戏中的经典游戏，描述如下：有 $n$ 堆石子，第 $i$ 堆有 $x_i$ 颗石子。$A$、$B$ 两人轮流取石子，每次仅能选择一堆不为空的石子进行操作：取走至少一颗">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合游戏基础之 SG 函数和 SG 定理">
+<meta property="og:url" content="http://littleclown.github.io/study/math/combinatorial-game/SG/index.html">
+<meta property="og:site_name" content="Clown&#39;s Blog">
+<meta property="og:description" content="NP 状态描述 无法进行任何移动的局面为 P-position 可以移动到 P-position 的局面为 N-position 任意移动都到达 N-position 的局面为 P-position  Nim 游戏Nim 游戏是组合游戏中的经典游戏，描述如下：有 $n$ 堆石子，第 $i$ 堆有 $x_i$ 颗石子。$A$、$B$ 两人轮流取石子，每次仅能选择一堆不为空的石子进行操作：取走至少一颗">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-09-04T09:28:53.000Z">
+<meta property="article:modified_time" content="2019-01-03T02:22:28.687Z">
+<meta property="article:author" content="笑着哭的小丑">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="组合游戏">
+<meta property="article:tag" content="SG 定理">
+<meta name="twitter:card" content="summary"><link rel="alternative" href="/atom.xml" title="Clown's Blog" type="application/atom+xml"><link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="generator" content="Hexo 5.4.0"></head><body><div id="container"><div class="left-col"><div class="overlay"></div><div class="intrude-less"><header class="inner" id="header"><a class="profilepic" href="/"><img class="js-avatar" lazy-src="/img/avatar.jpg"/></a><hgroup><h1 class="header-author"><a href="/">笑着哭的小丑</a></h1></hgroup><div class="switch-btn"><div class="icon"><div class="icon-ctn"><div class="icon-wrap icon-house" data-idx="0"><div class="birdhouse"></div><div class="birdhouse_holes"></div></div><div class="icon-wrap icon-ribbon hide" data-idx="1"><div class="ribbon"></div></div><div class="icon-wrap icon-link hide" data-idx="2"><div class="loopback_l"></div><div class="loopback_r"></div></div><div class="icon-wrap icon-me hide" data-idx="3"><div class="user"></div><div class="shoulder"></div></div></div></div><div class="tips-box hide"><div class="tips-arrow"></div><ul class="tips-inner"><li>菜单</li><li>标签</li><li>友情链接</li><li>关于我</li></ul></div></div><div class="switch-area"><div class="switch-wrap"><section class="switch-part switch-part1"><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></section><section class="switch-part switch-part2"><div class="widget tagcloud" id="js-tagcloud"><a href="/tags/ACM/" style="font-size: 20px;">ACM</a> <a href="/tags/Aho-Corasick-%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 10px;">Aho-Corasick 自动机</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/Baby-Step-Gaint-Step/" style="font-size: 11.67px;">Baby Step Gaint Step</a> <a href="/tags/Manacher/" style="font-size: 10px;">Manacher</a> <a href="/tags/SG-%E5%AE%9A%E7%90%86/" style="font-size: 10px;">SG 定理</a> <a href="/tags/Splay/" style="font-size: 10px;">Splay</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/keyword/" style="font-size: 10px;">keyword</a> <a href="/tags/protected/" style="font-size: 10px;">protected</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/web-%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web 开发</a> <a href="/tags/%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">专题训练</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" style="font-size: 11.67px;">中国剩余定理</a> <a href="/tags/%E4%B8%AD%E7%BA%A7/" style="font-size: 11.67px;">中级</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" style="font-size: 11.67px;">二分图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 13.33px;">动态规划</a> <a href="/tags/%E5%8E%9F%E6%A0%B9/" style="font-size: 11.67px;">原根</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 11.67px;">图论</a> <a href="/tags/%E5%A4%8D%E6%95%B0/" style="font-size: 10px;">复数</a> <a href="/tags/%E5%AD%97%E5%85%B8%E6%A0%91/" style="font-size: 10px;">字典树</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 11.67px;">字符串</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">学习笔记</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" style="font-size: 10px;">快速傅里叶变换</a> <a href="/tags/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/" style="font-size: 11.67px;">扩展欧几里得</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 11.67px;">技术</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 13.33px;">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 16.67px;">数据结构</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 16.67px;">数论</a> <a href="/tags/%E6%97%A2%E7%BA%A6%E5%89%A9%E4%BD%99%E7%B3%BB/" style="font-size: 10px;">既约剩余系</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%9B%BE/" style="font-size: 10px;">最大权闭合图</a> <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" style="font-size: 13.33px;">树链剖分</a> <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" style="font-size: 10px;">概率论</a> <a href="/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/" style="font-size: 11.67px;">欧拉函数</a> <a href="/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/" style="font-size: 11.67px;">状态压缩</a> <a href="/tags/%E7%9F%A9%E9%98%B5/" style="font-size: 10px;">矩阵</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E5%8F%98%E5%BD%A2/" style="font-size: 10px;">矩阵快速幂变形</a> <a href="/tags/%E7%B4%A0%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B/" style="font-size: 10px;">素数线性筛</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 11.67px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 13.33px;">线段树</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8F/" style="font-size: 10px;">组合游戏</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 11.67px;">网络流</a> <a href="/tags/%E8%A1%8C%E5%88%97%E5%BC%8F/" style="font-size: 10px;">行列式</a> <a href="/tags/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" style="font-size: 18.33px;">解题报告</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 11.67px;">计算机</a> <a href="/tags/%E8%AE%AD%E7%BB%83%E8%B5%9B/" style="font-size: 10px;">训练赛</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 10px;">语法分析</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%B6%E5%AF%BC%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">语法制导翻译</a> <a href="/tags/%E9%80%92%E6%8E%A8/" style="font-size: 10px;">递推</a> <a href="/tags/%E9%9A%BE%E9%A2%98/" style="font-size: 11.67px;">难题</a> <a href="/tags/%E9%AB%98%E7%BA%A7/" style="font-size: 10px;">高级</a></div></section><section class="switch-part switch-part3"><div id="js-friends"><a class="main-nav-link switch-friends-link" target="_blank" href="http://sparklingwind.github.io/">SparklingWind</a></div></section><section class="switch-part switch-part4"><div id="js-aboutme">时过境迁、惟愿此心不变、</div></section></div></div></header></div></div><div class="mid-col"><nav id="mobile-nav"><div class="overlay"><div class="slider-trigger"></div><h1 class="header-author js-mobile-header hide"></h1></div><div class="intrude-less"><header class="inner" id="header"><div class="profilepic"><img class="js-avatar"/></div><hgroup><h1 class="header-author"></h1></hgroup><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li><div class="clearfix"></div></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></header></div></nav><div class="body-wrap"><article class="article article-type-post" id="post-study/math/combinatorial-game/SG" itemscope="itemscope" itemprop="blogPost"><div class="article-meta"><a class="article-date" href="/study/math/combinatorial-game/SG/"><time datetime="2016-09-04T09:28:53.000Z" itemprop="datePublished">2016-09-04</time></a></div><div class="article-inner"><input class="isFancy" type="hidden"/><header class="article-header"><h1 class="article-title" itemprop="name">组合游戏基础之 SG 函数和 SG 定理</h1></header><div class="article-info article-info-post"><div class="article-tag tagcloud"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SG-%E5%AE%9A%E7%90%86/" rel="tag">SG 定理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8F/" rel="tag">组合游戏</a></li></ul></div><div class="clearfix"></div></div><div class="article-entry" itemprop="articleBody"><!-- by SparklingWind--><div class="toc-article" id="toc"><div class="toc-title">目录<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NP-%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">NP 状态描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nim-%E6%B8%B8%E6%88%8F"><span class="toc-number">2.</span> <span class="toc-text">Nim 游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SG-%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">SG 函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SG-%E5%AE%9A%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">SG 定理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%81%E6%98%8E"><span class="toc-number">4.1.</span> <span class="toc-text">证明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#step-1"><span class="toc-number">4.1.1.</span> <span class="toc-text">step 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step-2"><span class="toc-number">4.1.2.</span> <span class="toc-text">step 2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hint"><span class="toc-number">5.</span> <span class="toc-text">Hint</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">6.</span> <span class="toc-text">练习</span></a></li></ol></div></div><h1 id="NP-状态描述"><a href="#NP-状态描述" class="headerlink" title="NP 状态描述"></a>NP 状态描述</h1><ul>
+<li>无法进行任何移动的局面为 P-position</li>
+<li>可以移动到 P-position 的局面为 N-position</li>
+<li>任意移动都到达 N-position 的局面为 P-position</li>
+</ul>
+<h1 id="Nim-游戏"><a href="#Nim-游戏" class="headerlink" title="Nim 游戏"></a>Nim 游戏</h1><p>Nim 游戏是组合游戏中的经典游戏，描述如下：<br>有 $n$ 堆石子，第 $i$ 堆有 $x_i$ 颗石子。$A$、$B$ 两人轮流取石子，每次仅能选择一堆不为空的石子进行操作：取走至少一颗石子。不能操作的人输。</p>
+<p>关于 Nim 游戏有一个著名的结论：当且仅当 $x_1\oplus x_2\oplus\cdots\oplus x_n=0$ 时，先手获胜；否则后手胜。<br>证明很简单，当 $X=x_1\oplus x_2\oplus\cdots\oplus x_n\neq 0$ 时，设 $X$ 的二进制最高位为 $k$，那么一定存在一个 $x_i$ 其第 $k$ 位为 1。我们只需要从第 $i$ 堆石子中取走 $X\oplus x_i$ 个（显然，$X\oplus x_i &lt; x_i$，所以此操作是有效的），那么新的游戏状态下：$x_1\oplus x_2\oplus\cdots(x_i\oplus X)\oplus x_n=X\oplus X=0$。<br>事实上，这也是构造 Nim 游戏方案的方法。</p>
+<span id="more"></span>
+
+<hr>
+<p>接下来，介绍 $SG$ 函数和 $SG$ 定理，$SG$ 函数和 $SG$ 定理是解决一类组合游戏的有力工具。</p>
+<h1 id="SG-函数"><a href="#SG-函数" class="headerlink" title="SG 函数"></a>SG 函数</h1><p>对于任意状态 $x$，定义 $SG(x)=mex(S)$；其中，$S$ 是 $x$ 的所有后继状态的 $SG$ 函数值集合，$mex(S)$ 表示不在 $S$ 中的最小非负整数。 特别地，当 $S$ 为空集，即 $x$ 没有后继节点时，$SG(x)=0$。<br>不难验证：<br>\begin{align}<br>  x~\text{is}\left\lbrace<br>    \begin{aligned}<br>      &amp;\text{P-position}, &amp;SG(x)=0 \<br>      &amp;\text{N-position}, &amp;SG(x)\neq0 \<br>    \end{aligned}<br>  \right.<br>\end{align}</p>
+<h1 id="SG-定理"><a href="#SG-定理" class="headerlink" title="SG 定理"></a>SG 定理</h1><p><strong>游戏和的 $SG$ 函数等于各子游戏的 $SG$ 函数的 $Nim$ 和。</strong><br>具体来说，若游戏 $A$ 可以看做由 $n$ 个互不干扰的子游戏 $(A_1,A_2,\cdots,A_n)$ 构成；也就是对于游戏任一状态 $(x_1,x_2,\cdots,x_n)$，只能选择一个子游戏 $A_i(1\leqslant i\leqslant n)$ 进行操作，得到状态 $(x_1,x_2,\cdots,x’_i,\cdots,x_n)$；那么，$SG_A\big((x_1,x_2,\cdots,x_n)\big)=SG_{A_1}(x_1)\oplus SG_{A_2}(x_2)\oplus \cdots\oplus SG_{A_n}(x_n)$。</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>不妨假设当前游戏状态为 $X=(x_1,x_2,\cdots,x_n)$；记 $X$ 的所有后继状态集合为 $S$；<br>并记 $b=SG_{A_1}(x_1)\oplus SG_{A_2}(x_2)\oplus \cdots\oplus SG_{A_n}(x_n)$。<br>我们的证明分两步：</p>
+<ol>
+<li>$\forall_{0\leqslant a &lt; b},\exists_{X’\in S} SG_{A}(X’) = a.$</li>
+<li>$\forall_{X’\in S} SG_{A}(X’) \neq b.$</li>
+</ol>
+<h3 id="step-1"><a href="#step-1" class="headerlink" title="step 1"></a>step 1</h3><p>记 $c=b\oplus a$；因为 $a &lt; b$，所以必有：若 $c$ 的二进制最高位为 $k$，则 $b$ 的二进制第 $k$ 位也为 1；否则必有 $a &gt; b$。于是必有 $x_i \in X$ 满足 $SG_{A_i}(x_i)$ 的二进制第 $k$ 位为 1。<br>令 $d=c\oplus SG_{A_i}(x_i)$，不难验证：$d &lt; SG_{A_i}(x_i)$。<br>所以，根据 $SG$ 函数的定义可知，子游戏 $A_i$ 必有一个 $SG$ 值为 $d$ 的后继节点 $x_i’$。此时，<br>\begin{align}<br>   &amp;SG_{A_1}(x_1)\oplus SG_{A_2}(x_2)\oplus \cdots\oplus SG_{A_i}(x_i’)\cdots\oplus SG_{A_n}(x_n)\<br>  =&amp;SG_{A_1}(x_1)\oplus SG_{A_2}(x_2)\oplus \cdots\oplus \big(SG_{A_i}(x_i’)=d=c\oplus SG_{A_i}(x_i)=b\oplus a\oplus SG_{A_i}(x_i)\big)\cdots\oplus SG_{A_n}(x_n)\<br>  =&amp;\big(SG_{A_1}(x_1)\oplus SG_{A_2}(x_2)\oplus \cdots\oplus SG_{A_i}(x_i)\cdots\oplus SG_{A_n}(x_n)\big)\oplus b\oplus a\<br>  =&amp;b\oplus b\oplus a=a.<br>\end{align}</p>
+<h3 id="step-2"><a href="#step-2" class="headerlink" title="step 2"></a>step 2</h3><p>不妨操作子游戏 $A_i$ 到状态 $x_i’$ 得到游戏状态 $X’=(x_1,x_2,\cdots,x_i’,\cdots,x_n)$。<br>由 $SG$ 函数的定义可知，$SG_{A_i}(x_i’) \neq SG_{A_i}(x_i)$，即 $SG_{A_i}(x_i’)\oplus SG_{A_i}(x_i)\neq 0$。那么：<br>\begin{align}<br>   &amp;SG_{A_1}(x_1)\oplus SG_{A_2}(x_2)\oplus \cdots\oplus SG_{A_i}(x_i’)\cdots\oplus SG_{A_n}(x_n)\<br>  =&amp;SG_{A_1}(x_1)\oplus SG_{A_2}(x_2)\oplus \cdots\oplus \Big(\big(SG_{A_i}(x_i’)\oplus SG_{A_i}(x_i)\big)\oplus SG_{A_i}(x_i)\Big)\cdots\oplus SG_{A_n}(x_n)\<br>  =&amp;b\oplus SG_{A_i}(x_i’)\oplus SG_{A_i}(x_i) \neq b.<br>\end{align}</p>
+<p><em><strong><a target="_blank" rel="noopener" href="http://blog.csdn.net/philipsweng/article/details/48395375">参考链接</a></strong></em></p>
+<h1 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h1><p>由 $SG$ 函数的定义，不难联系到 Nim 游戏。实际上，我们可以用解决 Nim 游戏的方法来构造一般组合游戏的方案。只需要顺着将 $SG(X)$ 变成 0 的方向做出决策就好了。<br>在实际问题上，通常 $x$ 是一个很大的数，但是一般 $SG$ 函数是有规律的（总要给点活路= =），然后只要本地打表找规律。。。</p>
+<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><table>
+<thead>
+<tr>
+<th align="center">problems</th>
+<th align="center">categories</th>
+<th align="left">solution/code</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1661">51Nod/1661</a></strong></em></td>
+<td align="center">$SG$ 函数（本地打表找规律）</td>
+<td align="left"><em><strong><a href="/study/math/combinatorial-game/SG/01.cpp" title="Code">Code</a></strong></em></td>
+</tr>
+</tbody></table>
+</div></div><nav id="article-nav"><a class="article-nav-link-wrap" id="article-nav-newer" href="/study/codding/projects/web/frontend/css/1/"><strong class="article-nav-caption"></strong><div class="article-nav-title">前端学习之 css(1)</div></a><a class="article-nav-link-wrap" id="article-nav-older" href="/acm/special-topic/graph-theory/network-flow/"><div class="article-nav-title">网络流专题</div><strong class="article-nav-caption">></strong></a></nav></article><div id="gitalk-container"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  ...JSON.parse('{"clientID":"be8f64bb869585cb410e","clientSecret":"8c4cb258aecb72ccc1af7aa76380104cace8f816","repo":"LittleClown.github.io","owner":"littleclown","admin":["littleclown","lemon-clown"],"id":"window.location.pathname","distractionFreeMode":false}'),
+})
+
+gitalk.render('gitalk-container')</script></div></div><footer id="footer"><div class="outer"><div id="footer-info"><div class="footer-left">&copy; 2021-06-13 笑着哭的小丑</div><div class="footer-right">青春是低吟浅唱、你是我学不会的歌、</div></div></div></footer></div>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script>var yiliaConfig = {
+  fancybox:     true,
+  mathjax:      true,
+  animate:      true,
+  isHome:       false,
+  isPost:       true,
+  isArchive:    false,
+  isTag:        false,
+  isCategory:   false,
+  open_in_new:  false,
+}
+</script><!-- by SparklingWind-->
+<script src="/js/clipboard.min.js"></script>
+
+<script src="/js/require.js"></script>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+<div id="totop"><img src="/img/scrollup.png" title="返回顶部"></div><div id="goback"><img src="/img/goback.png" title="返回上一位置"></div><!-- by SparklingWind--><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  showMathMenu: false,
+  skipStartupTypeset: true,
+  showProcessingMessage: false,
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  TeX: {
+    equationNumbers: {
+      autoNumber: 'AMS',
+    },
+  },
+  messageStyle: 'none',
+  SVG: {
+    blacker: 1
+  },
+  styles: {
+    '.MathJax_Display': {
+      'user-select': 'none',
+    },
+  },
+});
+
+MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.body])</script><!-- by SparklingWind--><script>var cnzz_protocol = ("https:" == document.location.protocol? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1259020930'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1259020930' type='text/javascript'%3E%3C/script%3E"))</script><!-- by SparklingWind--></div></body></html>

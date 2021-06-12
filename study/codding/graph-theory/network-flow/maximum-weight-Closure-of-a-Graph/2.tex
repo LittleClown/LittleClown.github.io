@@ -1,0 +1,29 @@
+\input{/home/clown/vim/personaluse-latex/header.tex}
+  
+\begin{tikzpicture}[shorten >=1pt,node distance=2cm,>=stealth',auto,
+  every state/.style={thin,fill=gray}]
+  \node[state] (s)  at(0,-2) {s}; 
+  \node[state] (p1) at(3,0) {1};  
+  \node[state] (p2) at(6,0) {2};  
+  \node[state] (p3) at(3,-2) {3}; 
+  \node[state] (p4) at(6,-2) {4}; 
+  \node[state] (p5) at(8,-1) {5}; 
+  \node[state] (t)  at(10,0) {t};
+
+  \path[->]
+    (s)  edge[very thick, dashed] node[below] {$7$} (p3)
+    (s)  edge[very thick, dashed] node {$5$} (p1)
+    (p1) edge[very thick,black]  node {$\infty$} (p2)
+    (p1) edge[very thick,black]  node {$\infty$} (p4)
+    (p2) edge[very thick,black]  node[below] {$\infty$} (p5)
+    (p3) edge[very thick,black]  node[below] {$\infty$} (p4)
+    (p4) edge[very thick,black]  node[below] {$\infty$} (p5)
+    (p2)  edge[very thick, dashed] node {$6$}  (t)
+    (p5)  edge[very thick, dashed] node[below] {$3$} (t)
+  ;
+\end{tikzpicture}
+
+
+\input{/home/clown/vim/personaluse-latex/footer.tex}
+
+

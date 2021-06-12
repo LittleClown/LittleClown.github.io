@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>初识 Ubuntu | Clown's Blog</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="安装 Ubuntu 双系统 在 Windows 下分出硬盘空间，我分了 60G 下载 Ubuntu 镜像软件 下载 ultralSO 并将下载的 Ubuntu 镜像软件制作成 U 盘启动盘 安装 Ubuntu （在出现机器 logo 的时候按下 F12， 选择 USG HDD 启动）；设置分区： 逻辑分区，200M，起始，Ext4 日志文件系统， &#x2F;boot；（引导分区；200 M 足够） 逻辑分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识 Ubuntu">
+<meta property="og:url" content="http://littleclown.github.io/study/computer/os/ubuntu/1/index.html">
+<meta property="og:site_name" content="Clown&#39;s Blog">
+<meta property="og:description" content="安装 Ubuntu 双系统 在 Windows 下分出硬盘空间，我分了 60G 下载 Ubuntu 镜像软件 下载 ultralSO 并将下载的 Ubuntu 镜像软件制作成 U 盘启动盘 安装 Ubuntu （在出现机器 logo 的时候按下 F12， 选择 USG HDD 启动）；设置分区： 逻辑分区，200M，起始，Ext4 日志文件系统， &#x2F;boot；（引导分区；200 M 足够） 逻辑分">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-09-16T10:19:59.000Z">
+<meta property="article:modified_time" content="2019-01-03T02:22:28.676Z">
+<meta property="article:author" content="笑着哭的小丑">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary"><link rel="alternative" href="/atom.xml" title="Clown's Blog" type="application/atom+xml"><link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="generator" content="Hexo 5.4.0"></head><body><div id="container"><div class="left-col"><div class="overlay"></div><div class="intrude-less"><header class="inner" id="header"><a class="profilepic" href="/"><img class="js-avatar" lazy-src="/img/avatar.jpg"/></a><hgroup><h1 class="header-author"><a href="/">笑着哭的小丑</a></h1></hgroup><div class="switch-btn"><div class="icon"><div class="icon-ctn"><div class="icon-wrap icon-house" data-idx="0"><div class="birdhouse"></div><div class="birdhouse_holes"></div></div><div class="icon-wrap icon-ribbon hide" data-idx="1"><div class="ribbon"></div></div><div class="icon-wrap icon-link hide" data-idx="2"><div class="loopback_l"></div><div class="loopback_r"></div></div><div class="icon-wrap icon-me hide" data-idx="3"><div class="user"></div><div class="shoulder"></div></div></div></div><div class="tips-box hide"><div class="tips-arrow"></div><ul class="tips-inner"><li>菜单</li><li>标签</li><li>友情链接</li><li>关于我</li></ul></div></div><div class="switch-area"><div class="switch-wrap"><section class="switch-part switch-part1"><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></section><section class="switch-part switch-part2"><div class="widget tagcloud" id="js-tagcloud"><a href="/tags/ACM/" style="font-size: 20px;">ACM</a> <a href="/tags/Aho-Corasick-%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 10px;">Aho-Corasick 自动机</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/Baby-Step-Gaint-Step/" style="font-size: 11.67px;">Baby Step Gaint Step</a> <a href="/tags/Manacher/" style="font-size: 10px;">Manacher</a> <a href="/tags/SG-%E5%AE%9A%E7%90%86/" style="font-size: 10px;">SG 定理</a> <a href="/tags/Splay/" style="font-size: 10px;">Splay</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/keyword/" style="font-size: 10px;">keyword</a> <a href="/tags/protected/" style="font-size: 10px;">protected</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/web-%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web 开发</a> <a href="/tags/%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">专题训练</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" style="font-size: 11.67px;">中国剩余定理</a> <a href="/tags/%E4%B8%AD%E7%BA%A7/" style="font-size: 11.67px;">中级</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" style="font-size: 11.67px;">二分图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 13.33px;">动态规划</a> <a href="/tags/%E5%8E%9F%E6%A0%B9/" style="font-size: 11.67px;">原根</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 11.67px;">图论</a> <a href="/tags/%E5%A4%8D%E6%95%B0/" style="font-size: 10px;">复数</a> <a href="/tags/%E5%AD%97%E5%85%B8%E6%A0%91/" style="font-size: 10px;">字典树</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 11.67px;">字符串</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">学习笔记</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" style="font-size: 10px;">快速傅里叶变换</a> <a href="/tags/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/" style="font-size: 11.67px;">扩展欧几里得</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 11.67px;">技术</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 13.33px;">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 16.67px;">数据结构</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 16.67px;">数论</a> <a href="/tags/%E6%97%A2%E7%BA%A6%E5%89%A9%E4%BD%99%E7%B3%BB/" style="font-size: 10px;">既约剩余系</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%9B%BE/" style="font-size: 10px;">最大权闭合图</a> <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" style="font-size: 13.33px;">树链剖分</a> <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" style="font-size: 10px;">概率论</a> <a href="/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/" style="font-size: 11.67px;">欧拉函数</a> <a href="/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/" style="font-size: 11.67px;">状态压缩</a> <a href="/tags/%E7%9F%A9%E9%98%B5/" style="font-size: 10px;">矩阵</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E5%8F%98%E5%BD%A2/" style="font-size: 10px;">矩阵快速幂变形</a> <a href="/tags/%E7%B4%A0%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B/" style="font-size: 10px;">素数线性筛</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 11.67px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 13.33px;">线段树</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8F/" style="font-size: 10px;">组合游戏</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 11.67px;">网络流</a> <a href="/tags/%E8%A1%8C%E5%88%97%E5%BC%8F/" style="font-size: 10px;">行列式</a> <a href="/tags/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" style="font-size: 18.33px;">解题报告</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 11.67px;">计算机</a> <a href="/tags/%E8%AE%AD%E7%BB%83%E8%B5%9B/" style="font-size: 10px;">训练赛</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 10px;">语法分析</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%B6%E5%AF%BC%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">语法制导翻译</a> <a href="/tags/%E9%80%92%E6%8E%A8/" style="font-size: 10px;">递推</a> <a href="/tags/%E9%9A%BE%E9%A2%98/" style="font-size: 11.67px;">难题</a> <a href="/tags/%E9%AB%98%E7%BA%A7/" style="font-size: 10px;">高级</a></div></section><section class="switch-part switch-part3"><div id="js-friends"><a class="main-nav-link switch-friends-link" target="_blank" href="http://sparklingwind.github.io/">SparklingWind</a></div></section><section class="switch-part switch-part4"><div id="js-aboutme">时过境迁、惟愿此心不变、</div></section></div></div></header></div></div><div class="mid-col"><nav id="mobile-nav"><div class="overlay"><div class="slider-trigger"></div><h1 class="header-author js-mobile-header hide"></h1></div><div class="intrude-less"><header class="inner" id="header"><div class="profilepic"><img class="js-avatar"/></div><hgroup><h1 class="header-author"></h1></hgroup><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li><div class="clearfix"></div></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></header></div></nav><div class="body-wrap"><article class="article article-type-post" id="post-study/computer/os/ubuntu/1" itemscope="itemscope" itemprop="blogPost"><div class="article-meta"><a class="article-date" href="/study/computer/os/ubuntu/1/"><time datetime="2016-09-16T10:19:59.000Z" itemprop="datePublished">2016-09-16</time></a></div><div class="article-inner"><input class="isFancy" type="hidden"/><header class="article-header"><h1 class="article-title" itemprop="name">初识 Ubuntu</h1></header><div class="article-info article-info-post"><div class="article-tag tagcloud"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul></div><div class="clearfix"></div></div><div class="article-entry" itemprop="articleBody"><!-- by SparklingWind--><div class="toc-article" id="toc"><div class="toc-title">目录<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Ubuntu-%E5%8F%8C%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">安装 Ubuntu 双系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3-install-f-%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">解决 install -f 错误问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%8C%82%E8%B5%B7%E5%92%8C%E4%BC%91%E7%9C%A0%E6%97%A0%E6%B3%95%E5%94%A4%E9%86%92"><span class="toc-number">3.</span> <span class="toc-text">解决挂起和休眠无法唤醒</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E4%B9%A0%E6%83%AF%E6%80%A7%E8%BD%AF%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">一些习惯性软件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#QQ"><span class="toc-number">4.1.</span> <span class="toc-text">QQ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">4.1.1.</span> <span class="toc-text">安装虚拟机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B7%B1%E5%BA%A6%E7%BB%88%E7%AB%AF"><span class="toc-number">4.2.</span> <span class="toc-text">使用深度终端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim"><span class="toc-number">4.3.</span> <span class="toc-text">vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%B7%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">4.3.1.</span> <span class="toc-text">+号寄存器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-vim"><span class="toc-number">4.3.2.</span> <span class="toc-text">配置 vim</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">4.4.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pip"><span class="toc-number">4.5.</span> <span class="toc-text">pip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java"><span class="toc-number">4.6.</span> <span class="toc-text">java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chrome"><span class="toc-number">4.7.</span> <span class="toc-text">chrome</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#youdao-dict"><span class="toc-number">4.8.</span> <span class="toc-text">youdao-dict</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodejs"><span class="toc-number">4.9.</span> <span class="toc-text">nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo"><span class="toc-number">4.10.</span> <span class="toc-text">hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R"><span class="toc-number">4.11.</span> <span class="toc-text">R</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql"><span class="toc-number">4.12.</span> <span class="toc-text">mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mongodb"><span class="toc-number">4.13.</span> <span class="toc-text">mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TTF-%E5%AD%97%E4%BD%93"><span class="toc-number">4.14.</span> <span class="toc-text">TTF 字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tex-live"><span class="toc-number">4.15.</span> <span class="toc-text">tex-live</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaEE"><span class="toc-number">5.</span> <span class="toc-text">JavaEE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat-%E5%AE%89%E8%A3%85"><span class="toc-number">5.1.</span> <span class="toc-text">Tomcat 安装</span></a></li></ol></li></ol></div></div><h1 id="安装-Ubuntu-双系统"><a href="#安装-Ubuntu-双系统" class="headerlink" title="安装 Ubuntu 双系统"></a>安装 Ubuntu 双系统</h1><ul>
+<li>在 Windows 下分出硬盘空间，我分了 60G</li>
+<li>下载 Ubuntu 镜像软件</li>
+<li>下载 ultralSO 并将下载的 Ubuntu 镜像软件制作成 U 盘启动盘</li>
+<li>安装 Ubuntu （在出现机器 logo 的时候按下 F12， 选择 USG HDD 启动）；设置分区：<ul>
+<li>逻辑分区，200M，起始，Ext4 日志文件系统， /boot；（引导分区；200 M 足够）</li>
+<li>逻辑分区，4000M，起始，交换空间；（交换分区；一般不大于物理内存）</li>
+<li>逻辑分区，35000M，起始，Ext4 日志文件系统，/；（系统分区）</li>
+<li>逻辑分区，剩下的空闲空间，起始，Ext4 日志文件系统，/home；（用户分区；存放个人文档）</li>
+</ul>
+</li>
+<li>使用 EasyBSD 创建启动系统</li>
+<li><strong><a target="_blank" rel="noopener" href="http://blog.csdn.net/coderjyf/article/details/51241919">参考链接</a></strong>*<span id="more"></span></li>
+</ul>
+<h1 id="解决-install-f-错误问题"><a href="#解决-install-f-错误问题" class="headerlink" title="解决 install -f 错误问题"></a>解决 install -f 错误问题</h1><p>在 Ubuntu16.04 下安装网易云音乐时，下载好 <em><strong><a target="_blank" rel="noopener" href="http://202.197.96.248/files/9178000000509FAF/s1.music.126.net/download/pc/netease-cloud-music_1.0.0_amd64_ubuntu16.04.deb">netease-cloud-music_1.0.0_amd64_ubuntu16.04.deb</a></strong></em> 后，执行 </p>
+<pre><code>sudo dpkg -i netease-cloud-music_1.0.0_amd64_ubuntu16.04.deb
+</code></pre>
+<p>提示要安装很多的依赖项；执行 </p>
+<pre><code>sudo install -f 
+</code></pre>
+<p>结果有一个 <em><strong><a target="_blank" rel="noopener" href="http://202.197.96.248/files/10780000002B11C0/ftp.cn.debian.org/debian/pool/main/o/openjpeg/libopenjpeg5_1.5.2-3.1_amd64.deb">libopenjpeg5_1.5.2-3.1_amd64.deb</a></strong></em> 下不下来；导致 apt-get 不可用。<br>直接从网上下好 libopenjpeg5_1.5.2-3.1_amd64.deb 并放在 /var/cache/apt/archives 下，再次执行</p>
+<pre><code>sudo apt-get install -f 
+</code></pre>
+<p>结果还是一样的错，ls 发现清除了下下来的那个包。<br>重新下那个包，并在包所在目录下执行 </p>
+<pre><code>sudo dpkg -i libopenjpeg5_1.5.2-3.1_amd64.deb
+</code></pre>
+<p>成功安装该包；再执行 </p>
+<pre><code>sudo apt-get install -f
+</code></pre>
+<p>至此，成功解决问题。</p>
+<h1 id="解决挂起和休眠无法唤醒"><a href="#解决挂起和休眠无法唤醒" class="headerlink" title="解决挂起和休眠无法唤醒"></a>解决挂起和休眠无法唤醒</h1><p>Ubuntu16.04 用的内核版本是 4.4.0-xx-xxxxxx，这个内核是引起系统挂起非正常死机的原因。<br>***<a target="_blank" rel="noopener" href="http://kernel.ubuntu.com/~kernel-ppa/mainline/">下载新内核</a>***，这里我选择的是 v4.4.12-xenial 的内核。<span sytle="color: red; font-weight: bold;">注意，千万不要使用 v4.4.14-xenial 的内核！</span><br>进入想要安装的内核目录，下载三个文件（自己根据自己的系统选择）</p>
+<ul>
+<li>linux-headers-xxx_all.deb</li>
+<li>linux-headers-xxx-generic_xxx.deb</li>
+<li>linux-image-xxx-generic_xxx.deb</li>
+</ul>
+<p>下载好后，按照顺序进行安装</p>
+<pre><code>sudo dpkg -i linux-headers-xxx_all.deb
+sudo dpkg -i linux-headers-xxx-generic_xxx.deb
+sudo dpkg -i linux-image-xxx-generic_xxx.deb
+</code></pre>
+<h1 id="一些习惯性软件"><a href="#一些习惯性软件" class="headerlink" title="一些习惯性软件"></a>一些习惯性软件</h1><h2 id="QQ"><a href="#QQ" class="headerlink" title="QQ"></a>QQ</h2><ul>
+<li>下载 <em><strong><a target="_blank" rel="noopener" href="http://www.ubuntukylin.com/applications/showimg.php?lang=cn&id=23">wine-qq</a></strong></em></li>
+<li>解压并打开 wine-qq…. 安装包，安装</li>
+</ul>
+<p><em><strong><a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/e6c8503c6f5fa5e54f1a18de.html">参考链接</a></strong></em></p>
+<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><p>下载 <em><strong><a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Linux_Downloads">virtualbox</a></strong></em></p>
+<h2 id="使用深度终端"><a href="#使用深度终端" class="headerlink" title="使用深度终端"></a>使用深度终端</h2><p>原生的 Ubuntu 上的终端是不支持分屏的；另外，个人还是比较喜欢 deepin 的终端。</p>
+<ul>
+<li><p>添加 Linux Deepin 源</p>
+<ul>
+<li><p>编辑文件 /etc/apt/sources.list，再最后一行加上<br>deb <a target="_blank" rel="noopener" href="http://packages.linuxdeepin.com/deepin">http://packages.linuxdeepin.com/deepin</a> trusty main non-free universe<br>deb-src <a target="_blank" rel="noopener" href="http://packages.linuxdeepin.com/deepin">http://packages.linuxdeepin.com/deepin</a> trusty main non-free universe</p>
+</li>
+<li><p>添加 Linux Deepin 密匙文件</p>
+<blockquote>
+<p>导入密匙<br>  sudo wget <a target="_blank" rel="noopener" href="http://packages.linuxdeepin.com/deepin/project/deepin-keyring.gpg">http://packages.linuxdeepin.com/deepin/project/deepin-keyring.gpg</a><br>  sudo gpg –import deepin-keyring.gpg<br>列出密匙<br>  sudo gpg –list-keys<br>导出密匙<br>  sudo gpg –export –armor 209088E7 | sudo apt-key add -</p>
+</blockquote>
+</li>
+<li><p>更新软件源列表<br>sudo apt-get update</p>
+</li>
+<li><p>安装 deepin-terminal<br>sudo apt-get install deepin-terminal</p>
+</li>
+<li><p><em><strong><a target="_blank" rel="noopener" href="http://blog.csdn.net/donglynn/article/details/51376688">参考链接</a></strong></em></p>
+</li>
+</ul>
+</li>
+<li><p>将 deepin-terminal 设置为默认终端</p>
+<ul>
+<li>安装 dconf-tools</li>
+<li>打开 dconf-tools；图形化操作，点进 org &gt; gnome &gt; desktop &gt; applications &gt; terminala 将 exec 对应的值改成 deepin-terminal </li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.jb51.net/os/Ubuntu/311686.html">参考链接</a></strong></em></li>
+</ul>
+</li>
+</ul>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><h3 id="号寄存器"><a href="#号寄存器" class="headerlink" title="+号寄存器"></a>+号寄存器</h3><p>解决方法是重装 vim</p>
+<pre><code>sudo apt-get remove --purge vim
+sudo apt-get install build-essential
+sudo apt-get install ncurses-dev
+sudo apt-get install xorg-dev
+sudo apt-get install libgtk2.0-dev
+sudo apt-get install vim vim-scripts vim-gtk vim-gnome
+sudo apt-get install exuberant-ctags cscope  
+</code></pre>
+<p><em><strong><a target="_blank" rel="noopener" href="http://blog.csdn.net/lanchunhui/article/details/51476823">参考链接</a></strong></em></p>
+<h3 id="配置-vim"><a href="#配置-vim" class="headerlink" title="配置 vim"></a>配置 vim</h3><ul>
+<li>我的配置文件：***<a href="/2016/09/16/Study-OS-ubuntu-1/vimrc">.vimrc</a>***</li>
+<li>插件：<ul>
+<li>for HTML、css、javascript<blockquote>
+<p>下载 <em><strong><a href="/2016/09/16/Study-OS-ubuntu-1/HTML.zip">HTML.zip</a></strong></em> 解压到 ~/.vim/ 下即可<br>下载 <em><strong><a href="/2016/09/16/Study-OS-ubuntu-1/css.vim">css.vim</a></strong></em>  拷贝到 ~/.vim/syntax 目录下即可<br>下载 <em><strong><a href="/2016/09/16/Study-OS-ubuntu-1/mark.vim">mark.vim</a></strong></em>  （用于 javascript 变量标记和检查）拷贝到 ~/.vim/plugin 目录下即可<br>下载 <em><strong><a href="/2016/09/16/Study-OS-ubuntu-1/javacript.vim">javascript.vim</a></strong></em> （用于语法高亮） 拷贝到 ~/.vim/syntax 目录下<br>  在 javascript.vim 下设置 </p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setlocal foldlevel=1</span><br></pre></td></tr></table></figure>
+<p> 在 .vimrc 下添加</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">let b:javascript_fold=1 &quot; 打开 javascript 折叠</span><br><span class="line">let javascript_enable_domhtmlcss=1 &quot; 打开 javascript 对 dom、html、css 的支持</span><br><span class="line">&quot; html 标签自动补全（简陋版）</span><br><span class="line">  function! InsertHtmlTag()</span><br><span class="line">      let pat = &#x27;\c&lt;\w\+\s*\(\s\+\w\+\s*=\s*[\-/:&#x27;&#x27;#$;,().&quot;a-z0-9]\+\)*\s*&gt;&#x27;</span><br><span class="line">      normal! a&gt;</span><br><span class="line">      let save_cursor = getpos(&#x27;.&#x27;)</span><br><span class="line">      let result = matchstr(getline(save_cursor[1]), pat)</span><br><span class="line">      &quot;if (search(pat, &#x27;b&#x27;, save_cursor[1]) &amp;&amp; searchpair(&#x27;&lt;&#x27;,&#x27;&#x27;,&#x27;&gt;&#x27;,&#x27;bn&#x27;,0,  getline(&#x27;.&#x27;)) &gt; 0)</span><br><span class="line">      let lemon = search(pat, &#x27;b&#x27;, save_cursor[1])</span><br><span class="line">      if( lemon )</span><br><span class="line">          normal! lyiwf&gt;</span><br><span class="line">          normal! a&lt;/</span><br><span class="line">          normal! p</span><br><span class="line">          normal! a&gt;</span><br><span class="line">          normal! k</span><br><span class="line">      endif</span><br><span class="line">      :call cursor(save_cursor[1], save_cursor[2], save_cursor[3])</span><br><span class="line">      if( lemon ) </span><br><span class="line">          :execute &quot;normal! a\&lt;CR&gt;\&lt;CR&gt;&quot;</span><br><span class="line">             normal! k&gt;&gt;</span><br><span class="line">      endif</span><br><span class="line">  endfunction</span><br><span class="line">  autocmd FileType md inoremap &gt; &lt;ESC&gt;:call InsertHtmlTag()&lt;CR&gt;a</span><br><span class="line">  autocmd FileType html inoremap &gt; &lt;ESC&gt;:call InsertHtmlTag()&lt;CR&gt;a</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.cnblogs.com/Jason-Damon/archive/2011/10/31/2229692.html">vim 下web开发html css js插件</a></strong></em> </li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://blog.csdn.net/doc_sgl/article/details/47205779#t10">把 vim 打造成牛逼的 C++ IDE</a></strong></em></li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.tuicool.com/articles/QBnAr2">YouCompleteMe</a></strong></em>git clone <a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim.git">https://github.com/VundleVim/Vundle.vim.git</a> ~/.vim/bundle/Vundle.vim         </li>
+</ul>
+</li>
+</ul>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>安装</p>
+<pre><code>sudo apt-get install git
+</code></pre>
+<p>设置</p>
+<pre><code>git config --global user.name &quot;xxxx&quot; # 设置用户名
+git config --global user.email &quot;xxxx@xxx.com&quot; # 设置用户邮箱
+</code></pre>
+<p>解决中文乱码</p>
+<pre><code>git config --global core.quotepath false
+git config --global gui.encoding utf-8 # 设置 git gui 的界面编码
+git config --global i18n.commitencoding utf-8 # 设置 commit log 提交时使用 utf-8 编码
+# git config --global i18n.logoutputencoding gbk # 设置在 git log 时将 utf-8 编码转换成 utf-8编码
+export LESSCHARSET=utf-8 # 使得 git log 可以正常使用中文
+</code></pre>
+<p>新建 ssh 密匙</p>
+<pre><code>cd ~/.ssh
+ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
+ssh-agent bash
+ssh-add id_rsa
+</code></pre>
+<p>将 id_rsa.pub 部署到 github 上，测试：</p>
+<pre><code>ssh git@github.com
+</code></pre>
+<p><em><strong><a target="_blank" rel="noopener" href="http://www.asheep.cn/skill/git-ssh-key.html">参考链接</a></strong></em><br><em><strong><a target="_blank" rel="noopener" href="http://blog.csdn.net/yunnywu/article/details/50553908">参考链接</a></strong></em></p>
+<h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><pre><code>sudo apt-get install python-pip （默认 python2.7）
+sudo apt-get install python3-pip （基于 python3.x)
+</code></pre>
+<h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><ul>
+<li>下载 <em><strong><a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html">java</a></strong></em></li>
+<li>将下载文件（应该是一个 tar.gz 结尾的文件）解压到 /opt<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf xxx.tar.gz</span><br><span class="line">sudo mv xxx /opt</span><br></pre></td></tr></table></figure></li>
+<li>在解压后的目录下找到 bin 目录，创建 java 软链接（源文件一定要使用绝对路径）到 /bin/ 目录下<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln /opt/jdk1.8.0_101/bin/java /bin/java</span><br></pre></td></tr></table></figure></li>
+<li>设置 java 环境<br>打开 /etc/profile<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/opt/jdk1.8.0_92</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="chrome"><a href="#chrome" class="headerlink" title="chrome"></a>chrome</h2><pre><code>sudo apt-get install google-chrome-stable
+</code></pre>
+<h2 id="youdao-dict"><a href="#youdao-dict" class="headerlink" title="youdao-dict"></a>youdao-dict</h2><ul>
+<li>下载 <em><strong><a target="_blank" rel="noopener" href="http://cidian.youdao.com/index-linux.html">youdao-dict_1.1.0-0-ubuntu_amd64.deb</a></strong></em></li>
+<li>到该目录下安装<br>sudo dpkg -i youdao-dict_1.1.0-0-ubuntu_amd64.deb</li>
+<li>如果失败，请参考 <em><strong><a target="_blank" rel="noopener" href="http://www.cnblogs.com/scplee/archive/2016/05/13/5489024.html">Ubuntu16.04 安装有道词典</a></strong></em></li>
+</ul>
+<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><p>现下好 ***<a target="_blank" rel="noopener" href="https://nodejs.org/en/">nodejs</a>***。应该是一个 xxx.tar.xz 文件。假设该文件所在目录为 /lemon：</p>
+<pre><code>xz -d xxx.tar.xz
+tar -xvf xxx.tar
+ln -s /lemon/bin/node /usr/local/bin/node
+ln -s /lemon/bin/npm  /usr/local/bin/npm
+</code></pre>
+<p>.tar.xz 文件解压后即可执行，建立软链接使得全局可以使用。<br><strong>建立软链接时一定要用绝对路径</strong>。<br><em><strong><a target="_blank" rel="noopener" href="http://www.cnblogs.com/8765h/p/4777746.html">参考链接</a></strong></em></p>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p>使用 npm 命令安装 hexo，你会发现安装的位置在你 npm 下，所以需要建立软链接以使得全局可以使用。</p>
+<pre><code>sudo npm install -g hexo-cli
+ln -s /lemon/bin/hexo /usr/local/bin/hexo
+</code></pre>
+<h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><pre><code>sudo apt-get install r-base
+</code></pre>
+<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><pre><code>sudo apt-get install mysql-client mysql-server
+</code></pre>
+<h2 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h2><pre><code>tar -zxvf mongodb-linux-x86_64-ubuntu1604-3.4.0.tgz
+</code></pre>
+<h2 id="TTF-字体"><a href="#TTF-字体" class="headerlink" title="TTF 字体"></a>TTF 字体</h2><p>先下好字体，比如 consolas.ttf 字体；安装命令如下：</p>
+<pre><code>sudo cp consolas.ttf /usr/share/fonts/truetype/
+sudo fc-cache -f -v
+</code></pre>
+<h2 id="tex-live"><a href="#tex-live" class="headerlink" title="tex-live"></a>tex-live</h2><p>下载 ***<a target="_blank" rel="noopener" href="http://tug.org/texlive/acquire-netinstall.html">intall-tl-unx.tar.gz</a>***，执行</p>
+<pre><code>tar -xvzf intall-tl-unx.tar.gz
+</code></pre>
+<p>在解压后的文件夹中找到 install.tl，在终端中执行</p>
+<pre><code>sudo ./install-tl
+</code></pre>
+<p><em><strong><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20069414?refer=LaTeX">参考链接</a></strong></em></p>
+<p>或者，可以下载 texlive2016.iso 文件：</p>
+<ul>
+<li><p><em><strong><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2016.iso">中科大镜像</a></strong></em></p>
+</li>
+<li><p><em><strong><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive2016.iso">清华镜像</a></strong></em></p>
+</li>
+<li><p><em><strong><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/CTAN/systems/texlive/Images/texlive2016.iso">阿里云镜像</a></strong></em><br>为了使用图形化安装界面，安装 perl 的 tk 组件：</p>
+<p>sudo apt-get install perl-tk<br>到 texlive2016.iso 目录下，执行</p>
+<p>sudo mount -o loop texlive2016.iso /mnt<br>cd /mnt<br>sudo ./install-tl -gui<br>在图形化界面中安装，<strong>创建符号链接选是</strong>。<br>安装完成后，卸载镜像文件</p>
+<p>cd /; sudo umount /mnt</p>
+</li>
+</ul>
+<p><em><strong><a target="_blank" rel="noopener" href="http://www.linuxidc.com/Linux/2016-08/133913.htm">参考链接</a></strong></em><br>关于字体的问题，只要安装好 <code>simfang.ttf</code>、<code>simhei.ttf</code>、<code>simkai.ttf</code>、<code>simsun.ttf</code> 应该问题就不大了。</p>
+<h1 id="JavaEE"><a href="#JavaEE" class="headerlink" title="JavaEE"></a>JavaEE</h1><h2 id="Tomcat-安装"><a href="#Tomcat-安装" class="headerlink" title="Tomcat 安装"></a>Tomcat 安装</h2><p>下载 <em><strong><a target="_blank" rel="noopener" href="http://tomcat.apache.org/download-90.cgi">Core&gt;tar.gz</a></strong></em><br>安装配置</p>
+<pre><code>tar -zxvf apache-tomcat-9.0.0.M10 
+sudo mv apache-tomcat-9.0.0.M10 /opt
+cd /opt/apache-tomcat-9.0.0.M10/bin
+sudo ./startup.sh # 开启 tomcat
+</code></pre>
+<p>打开浏览器， <code>localhost:8080</code> 即可访问到 tomcat 的页面。<br>查看监控信息</p>
+<pre><code>cd /opt/apache-tomcat-9.0.0.Min/logs
+tail -f catalina.out
+</code></pre>
+<p><em><strong><a target="_blank" rel="noopener" href="http://www.tuicool.com/articles/iYZZFf">参考链接</a></strong></em></p>
+</div></div><nav id="article-nav"><a class="article-nav-link-wrap" id="article-nav-newer" href="/study/math/linear-algebra/Study-Math-LinearAlgebra-1/"><strong class="article-nav-caption"></strong><div class="article-nav-title">线性代数基础之行列式</div></a><a class="article-nav-link-wrap" id="article-nav-older" href="/study/codding/projects/web/frontend/css/1/"><div class="article-nav-title">前端学习之 css(1)</div><strong class="article-nav-caption">></strong></a></nav></article><div id="gitalk-container"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  ...JSON.parse('{"clientID":"be8f64bb869585cb410e","clientSecret":"8c4cb258aecb72ccc1af7aa76380104cace8f816","repo":"LittleClown.github.io","owner":"littleclown","admin":["littleclown","lemon-clown"],"id":"window.location.pathname","distractionFreeMode":false}'),
+})
+
+gitalk.render('gitalk-container')</script></div></div><footer id="footer"><div class="outer"><div id="footer-info"><div class="footer-left">&copy; 2021-06-13 笑着哭的小丑</div><div class="footer-right">青春是低吟浅唱、你是我学不会的歌、</div></div></div></footer></div>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script>var yiliaConfig = {
+  fancybox:     true,
+  mathjax:      true,
+  animate:      true,
+  isHome:       false,
+  isPost:       true,
+  isArchive:    false,
+  isTag:        false,
+  isCategory:   false,
+  open_in_new:  false,
+}
+</script><!-- by SparklingWind-->
+<script src="/js/clipboard.min.js"></script>
+
+<script src="/js/require.js"></script>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+<div id="totop"><img src="/img/scrollup.png" title="返回顶部"></div><div id="goback"><img src="/img/goback.png" title="返回上一位置"></div><!-- by SparklingWind--><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  showMathMenu: false,
+  skipStartupTypeset: true,
+  showProcessingMessage: false,
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  TeX: {
+    equationNumbers: {
+      autoNumber: 'AMS',
+    },
+  },
+  messageStyle: 'none',
+  SVG: {
+    blacker: 1
+  },
+  styles: {
+    '.MathJax_Display': {
+      'user-select': 'none',
+    },
+  },
+});
+
+MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.body])</script><!-- by SparklingWind--><script>var cnzz_protocol = ("https:" == document.location.protocol? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1259020930'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1259020930' type='text/javascript'%3E%3C/script%3E"))</script><!-- by SparklingWind--></div></body></html>

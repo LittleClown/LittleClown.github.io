@@ -1,0 +1,62 @@
+\input{/home/clown/vim/personaluse-latex/header.tex}
+
+  %\pagestyle{fancy}
+  %\fancyhf{}
+  %\fancyhead[C]{\heiti\color{violet}\bf }
+  %\fancyfoot[C]{\heiti\color{violet}\bf \thepage}
+  %\fancyfoot[R]{\heiti\color{violet}\bf by Clown}
+  
+
+\begin{tikzpicture}[shorten >=1pt,node distance=2cm,>=stealth',auto,
+  every state/.style={thin,fill=gray}]
+  \node[state,initial]   (node0)  at (0,0)  {0};
+  \node[state]           (node1)  at (2,1)  {1};
+  \node[state]           (node2)  [right of=node1]  {2};
+  \node[state]           (node3)  [right of=node2]  {3};
+  \node[state,accepting] (node4)  [right of=node3]  {4};
+  \node[state]           (node5)  [right of=node4]  {5};
+  \node[state]           (node6)  [right of=node5]  {6};
+  \node[state,accepting] (node7)  [right of=node6]  {7};
+  \node[state]           (node8)  at (2,-1)  {8};
+  \node[state]           (node9)  [right of=node8]  {9};
+  \node[state]           (node10) [right of=node9]  {10};
+  \node[state]           (node11) [right of=node10] {11};
+  \node[state]           (node12) [right of=node11] {12};
+  \node[state,accepting] (node13) [right of=node12] {13};
+
+  \path[->]
+    (node0)  edge node{$a$} (node1)
+    (node1)  edge node{$g$} (node2)
+    (node2)  edge node{$v$} (node3)
+    (node3)  edge node{$a$} (node4)
+    (node4)  edge node{$g$} (node5)
+    (node5)  edge node{$v$} (node6)
+    (node6)  edge node{$a$} (node7)
+    (node0)  edge node{$g$} (node8)
+    (node8)  edge node{$v$} (node9)
+    (node9)  edge node{$a$} (node10)
+    (node10) edge node{$g$} (node11)
+    (node11) edge node{$v$} (node12)
+    (node12) edge node{$a$} (node13)
+  ;
+
+  \draw[->,dashed] (node1) to[out=170,in=70] (node0) ;
+  \draw[->,dashed] (node8) to[out=180,in=310] (node0);
+  \draw[->,dashed] (node9) to[out=220,in=270] (node0);
+
+  \path[->,dashed] 
+    (node2)  edge (node8)
+    (node3)  edge (node9)
+    (node4)  edge (node10)
+    (node5)  edge (node11)
+    (node6)  edge (node12)
+    (node7)  edge (node13)
+    (node10) edge (node1)
+    (node11) edge (node2)
+    (node12) edge (node3)
+    (node13) edge (node4)
+  ;
+\end{tikzpicture}
+  
+
+\input{/home/clown/vim/personaluse-latex/footer.tex}

@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>51nod-1462 数据结构 解题报告 | Clown's Blog</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="*** 题目链接 ****** Code *** 题意简述一棵 $N$ 个节点的树，以 1 为根。树上的每个节点有两个权值：$v_i$，$t_i$。初始时均为 0。$Q$ 次操作：  1 u d   $\hskip .6em$ 对 $u$ 到根上所有点的 $v_i \text{+&#x3D;} d$ 2 u d   $\hskip .6em$ 对 $u$ 到根上所有点的 $t_i \text{+&#x3D;} v_i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="51nod-1462 数据结构 解题报告">
+<meta property="og:url" content="http://littleclown.github.io/acm/oj/51nod/1400/1462/index.html">
+<meta property="og:site_name" content="Clown&#39;s Blog">
+<meta property="og:description" content="*** 题目链接 ****** Code *** 题意简述一棵 $N$ 个节点的树，以 1 为根。树上的每个节点有两个权值：$v_i$，$t_i$。初始时均为 0。$Q$ 次操作：  1 u d   $\hskip .6em$ 对 $u$ 到根上所有点的 $v_i \text{+&#x3D;} d$ 2 u d   $\hskip .6em$ 对 $u$ 到根上所有点的 $t_i \text{+&#x3D;} v_i">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-04-23T05:24:31.000Z">
+<meta property="article:modified_time" content="2019-01-03T02:22:28.216Z">
+<meta property="article:author" content="笑着哭的小丑">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="解题报告">
+<meta property="article:tag" content="树链剖分">
+<meta property="article:tag" content="线段树">
+<meta property="article:tag" content="中级">
+<meta name="twitter:card" content="summary"><link rel="alternative" href="/atom.xml" title="Clown's Blog" type="application/atom+xml"><link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="generator" content="Hexo 5.4.0"></head><body><div id="container"><div class="left-col"><div class="overlay"></div><div class="intrude-less"><header class="inner" id="header"><a class="profilepic" href="/"><img class="js-avatar" lazy-src="/img/avatar.jpg"/></a><hgroup><h1 class="header-author"><a href="/">笑着哭的小丑</a></h1></hgroup><div class="switch-btn"><div class="icon"><div class="icon-ctn"><div class="icon-wrap icon-house" data-idx="0"><div class="birdhouse"></div><div class="birdhouse_holes"></div></div><div class="icon-wrap icon-ribbon hide" data-idx="1"><div class="ribbon"></div></div><div class="icon-wrap icon-link hide" data-idx="2"><div class="loopback_l"></div><div class="loopback_r"></div></div><div class="icon-wrap icon-me hide" data-idx="3"><div class="user"></div><div class="shoulder"></div></div></div></div><div class="tips-box hide"><div class="tips-arrow"></div><ul class="tips-inner"><li>菜单</li><li>标签</li><li>友情链接</li><li>关于我</li></ul></div></div><div class="switch-area"><div class="switch-wrap"><section class="switch-part switch-part1"><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></section><section class="switch-part switch-part2"><div class="widget tagcloud" id="js-tagcloud"><a href="/tags/ACM/" style="font-size: 20px;">ACM</a> <a href="/tags/Aho-Corasick-%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 10px;">Aho-Corasick 自动机</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/Baby-Step-Gaint-Step/" style="font-size: 11.67px;">Baby Step Gaint Step</a> <a href="/tags/Manacher/" style="font-size: 10px;">Manacher</a> <a href="/tags/SG-%E5%AE%9A%E7%90%86/" style="font-size: 10px;">SG 定理</a> <a href="/tags/Splay/" style="font-size: 10px;">Splay</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/keyword/" style="font-size: 10px;">keyword</a> <a href="/tags/protected/" style="font-size: 10px;">protected</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/web-%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web 开发</a> <a href="/tags/%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">专题训练</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" style="font-size: 11.67px;">中国剩余定理</a> <a href="/tags/%E4%B8%AD%E7%BA%A7/" style="font-size: 11.67px;">中级</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" style="font-size: 11.67px;">二分图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 13.33px;">动态规划</a> <a href="/tags/%E5%8E%9F%E6%A0%B9/" style="font-size: 11.67px;">原根</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 11.67px;">图论</a> <a href="/tags/%E5%A4%8D%E6%95%B0/" style="font-size: 10px;">复数</a> <a href="/tags/%E5%AD%97%E5%85%B8%E6%A0%91/" style="font-size: 10px;">字典树</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 11.67px;">字符串</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">学习笔记</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" style="font-size: 10px;">快速傅里叶变换</a> <a href="/tags/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/" style="font-size: 11.67px;">扩展欧几里得</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 11.67px;">技术</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 13.33px;">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 16.67px;">数据结构</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 16.67px;">数论</a> <a href="/tags/%E6%97%A2%E7%BA%A6%E5%89%A9%E4%BD%99%E7%B3%BB/" style="font-size: 10px;">既约剩余系</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%9B%BE/" style="font-size: 10px;">最大权闭合图</a> <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" style="font-size: 13.33px;">树链剖分</a> <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" style="font-size: 10px;">概率论</a> <a href="/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/" style="font-size: 11.67px;">欧拉函数</a> <a href="/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/" style="font-size: 11.67px;">状态压缩</a> <a href="/tags/%E7%9F%A9%E9%98%B5/" style="font-size: 10px;">矩阵</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E5%8F%98%E5%BD%A2/" style="font-size: 10px;">矩阵快速幂变形</a> <a href="/tags/%E7%B4%A0%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B/" style="font-size: 10px;">素数线性筛</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 11.67px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 13.33px;">线段树</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8F/" style="font-size: 10px;">组合游戏</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 11.67px;">网络流</a> <a href="/tags/%E8%A1%8C%E5%88%97%E5%BC%8F/" style="font-size: 10px;">行列式</a> <a href="/tags/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" style="font-size: 18.33px;">解题报告</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 11.67px;">计算机</a> <a href="/tags/%E8%AE%AD%E7%BB%83%E8%B5%9B/" style="font-size: 10px;">训练赛</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 10px;">语法分析</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%B6%E5%AF%BC%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">语法制导翻译</a> <a href="/tags/%E9%80%92%E6%8E%A8/" style="font-size: 10px;">递推</a> <a href="/tags/%E9%9A%BE%E9%A2%98/" style="font-size: 11.67px;">难题</a> <a href="/tags/%E9%AB%98%E7%BA%A7/" style="font-size: 10px;">高级</a></div></section><section class="switch-part switch-part3"><div id="js-friends"><a class="main-nav-link switch-friends-link" target="_blank" href="http://sparklingwind.github.io/">SparklingWind</a></div></section><section class="switch-part switch-part4"><div id="js-aboutme">时过境迁、惟愿此心不变、</div></section></div></div></header></div></div><div class="mid-col"><nav id="mobile-nav"><div class="overlay"><div class="slider-trigger"></div><h1 class="header-author js-mobile-header hide"></h1></div><div class="intrude-less"><header class="inner" id="header"><div class="profilepic"><img class="js-avatar"/></div><hgroup><h1 class="header-author"></h1></hgroup><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li><div class="clearfix"></div></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></header></div></nav><div class="body-wrap"><article class="article article-type-post" id="post-acm/oj/51nod/1400/1462" itemscope="itemscope" itemprop="blogPost"><div class="article-meta"><a class="article-date" href="/acm/oj/51nod/1400/1462/"><time datetime="2016-04-23T05:24:31.000Z" itemprop="datePublished">2016-04-23</time></a></div><div class="article-inner"><input class="isFancy" type="hidden"/><header class="article-header"><h1 class="article-title" itemprop="name">51nod-1462 数据结构 解题报告</h1></header><div class="article-info article-info-post"><div class="article-tag tagcloud"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/" rel="tag">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AD%E7%BA%A7/" rel="tag">中级</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" rel="tag">树链剖分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" rel="tag">解题报告</a></li></ul></div><div class="clearfix"></div></div><div class="article-entry" itemprop="articleBody"><!-- by SparklingWind--><div class="toc-article" id="toc"><div class="toc-title">目录<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E6%84%8F%E7%AE%80%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">题意简述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E7%AE%80%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">题目简析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">复杂度分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hint"><span class="toc-number">4.</span> <span class="toc-text">Hint</span></a></li></ol></div></div><p>*** <a target="_blank" rel="noopener" href="http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1462">题目链接</a> ***<br>*** <a href="/acm/oj/51nod/1400/1462/Code.cpp" title="Code">Code</a> ***</p>
+<h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>一棵 $N$ 个节点的树，以 1 为根。树上的每个节点有两个权值：$v_i$，$t_i$。初始时均为 0。<br>$Q$ 次操作：</p>
+<ul>
+<li><code>1 u d</code>   $\hskip .6em$ 对 $u$ 到根上所有点的 $v_i <del>\text{+=}</del> d$</li>
+<li><code>2 u d</code>   $\hskip .6em$ 对 $u$ 到根上所有点的 $t_i <del>\text{+=}</del> v_i \times d$</li>
+</ul>
+<p>输出 $Q$ 次操作后所有节点的权值。</p>
+<p>数据范围：$N,Q \leqslant 10^5$。<br>数据保证 64 位整数不会溢出。</p>
+<span id="more"></span>
+
+<h1 id="题目简析"><a href="#题目简析" class="headerlink" title="题目简析"></a>题目简析</h1><p>先考虑在一段区间中怎么维护这两个操作。</p>
+<p>$t_i$ 增加值是 $v_i$ 和 $d$ 的乘积。</p>
+<ul>
+<li>当 $v_i$ 不发生改变，可以累加 $d$ 的值， $d’=\sum d$；</li>
+<li>当 $v_i$ 发生改变，$t_i <del>\text{+=}</del> v_i \times d’$，$d’=0$，$v_i <del>\text{+=}</del> d$。</li>
+</ul>
+<p>由于我们求的是 $Q$ 次操作后每个节点的 $t_i$ 值；<br>维护一个类似 <code>区间更新，单点求值</code> 的问题即可。</p>
+<hr>
+<p>操作一（$v_i$ 发生变化）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Pushdown</span><span class="params">(<span class="keyword">int</span> o, <span class="keyword">int</span> lft, <span class="keyword">int</span> rht)</span> </span>&#123;</span><br><span class="line">    t[o] += v[o] * d[o];</span><br><span class="line">    <span class="keyword">if</span>( lft &lt; rht ) &#123;</span><br><span class="line">        d[lc] += d[o];</span><br><span class="line">        d[rc] += d[o];</span><br><span class="line">    &#125;</span><br><span class="line">    d[o] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> ul, ur, uv, uc;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">(<span class="keyword">int</span> o, <span class="keyword">int</span> lft, <span class="keyword">int</span> rht)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">Pushdown</span>(o, lft, rht);</span><br><span class="line">    <span class="keyword">if</span>( ul &lt;= lft &amp;&amp; rht &lt;= ur ) &#123;</span><br><span class="line">        v[o] += uv;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = lft+rht &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>( ul &lt;= mid ) <span class="built_in">Update</span>(lc, lft, mid);</span><br><span class="line">        <span class="keyword">if</span>( ur &gt; mid ) <span class="built_in">Update</span>(rc, mid+<span class="number">1</span>, rht);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>操作二（$v_i$ 不发生变化）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">(<span class="keyword">int</span> o, <span class="keyword">int</span> lft, <span class="keyword">int</span> rht, LL add)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ul &lt;= lft &amp;&amp; rht &lt;= ur) &#123;</span><br><span class="line">        d[o] += uv;</span><br><span class="line">        t[o] += add;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        add += uv * v[o];</span><br><span class="line">        <span class="keyword">int</span> mid = lft + rht &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (ul &lt;= mid) <span class="built_in">Update</span>(lc, lft, mid, add);</span><br><span class="line">        <span class="keyword">if</span> (ur &gt; mid) <span class="built_in">Update</span>(rc, mid+<span class="number">1</span>, rht, add);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>最后的 <code>Query</code> 操作只要把所有的标记 <code>Pushdown</code> 到叶子节点即可。<br>解决了区间的问题，剩下的只要树剖一下就好了。</p>
+<h1 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h1><p><code>Update</code> 操作是 $O(\log N)$ 的，执行 $Q$ 次；<code>Query</code> 操作是 $O(N)$ 的，但只执行一次。</p>
+<ul>
+<li><code>空间复杂度</code> $O(N)$</li>
+<li><code>时间复杂度</code> $O(Q\log N + N)$</li>
+</ul>
+<h1 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h1><p>数据范围比较大，会爆栈，需要手动扩栈。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">&quot;/STACK:102400000,102400000&quot;</span>)</span></span><br></pre></td></tr></table></figure>
+<p>51nod 暂只有 Visual C++ 支持手动扩栈。</p>
+<p>*** <a href="http://littleclown.github.io/2016/04/23/Study-DT-TCS/">树链剖分</a> ***</p>
+</div></div><nav id="article-nav"><a class="article-nav-link-wrap" id="article-nav-newer" href="/study/codding/algorithm/tree/TCS/"><strong class="article-nav-caption"></strong><div class="article-nav-title">树链剖分</div></a><a class="article-nav-link-wrap" id="article-nav-older" href="/study/math/combinatorial-mathematics/put-the-ball-in-box-model/"><div class="article-nav-title">小球放盒模型</div><strong class="article-nav-caption">></strong></a></nav></article><div id="gitalk-container"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  ...JSON.parse('{"clientID":"be8f64bb869585cb410e","clientSecret":"8c4cb258aecb72ccc1af7aa76380104cace8f816","repo":"LittleClown.github.io","owner":"littleclown","admin":["littleclown","lemon-clown"],"id":"window.location.pathname","distractionFreeMode":false}'),
+})
+
+gitalk.render('gitalk-container')</script></div></div><footer id="footer"><div class="outer"><div id="footer-info"><div class="footer-left">&copy; 2021-06-13 笑着哭的小丑</div><div class="footer-right">青春是低吟浅唱、你是我学不会的歌、</div></div></div></footer></div>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script>var yiliaConfig = {
+  fancybox:     true,
+  mathjax:      true,
+  animate:      true,
+  isHome:       false,
+  isPost:       true,
+  isArchive:    false,
+  isTag:        false,
+  isCategory:   false,
+  open_in_new:  false,
+}
+</script><!-- by SparklingWind-->
+<script src="/js/clipboard.min.js"></script>
+
+<script src="/js/require.js"></script>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+<div id="totop"><img src="/img/scrollup.png" title="返回顶部"></div><div id="goback"><img src="/img/goback.png" title="返回上一位置"></div><!-- by SparklingWind--><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  showMathMenu: false,
+  skipStartupTypeset: true,
+  showProcessingMessage: false,
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  TeX: {
+    equationNumbers: {
+      autoNumber: 'AMS',
+    },
+  },
+  messageStyle: 'none',
+  SVG: {
+    blacker: 1
+  },
+  styles: {
+    '.MathJax_Display': {
+      'user-select': 'none',
+    },
+  },
+});
+
+MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.body])</script><!-- by SparklingWind--><script>var cnzz_protocol = ("https:" == document.location.protocol? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1259020930'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1259020930' type='text/javascript'%3E%3C/script%3E"))</script><!-- by SparklingWind--></div></body></html>

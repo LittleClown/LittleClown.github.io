@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>语法分析 | Clown's Blog</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="FIRST计算方法$FIRST(X)$  如果 $X$ 是一个终结符号，那么 $FIRST(X) &#x3D; X$ 如果 $X \rightarrow \varepsilon$ 是一个产生式，那么 $\varepsilon \in FIRST(X)$ 如果 $X$ 是一个非终结符号，且 $X \rightarrow Y_1Y_2\cdots Y_k$ 是一个产生式： $FIRST(Y_1) \in FIR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="语法分析">
+<meta property="og:url" content="http://littleclown.github.io/study/computer/fundamentals-of-compiling/grammer/index.html">
+<meta property="og:site_name" content="Clown&#39;s Blog">
+<meta property="og:description" content="FIRST计算方法$FIRST(X)$  如果 $X$ 是一个终结符号，那么 $FIRST(X) &#x3D; X$ 如果 $X \rightarrow \varepsilon$ 是一个产生式，那么 $\varepsilon \in FIRST(X)$ 如果 $X$ 是一个非终结符号，且 $X \rightarrow Y_1Y_2\cdots Y_k$ 是一个产生式： $FIRST(Y_1) \in FIR">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-06-18T06:27:03.000Z">
+<meta property="article:modified_time" content="2019-01-03T02:22:28.649Z">
+<meta property="article:author" content="笑着哭的小丑">
+<meta property="article:tag" content="编译原理">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="语法分析">
+<meta name="twitter:card" content="summary"><link rel="alternative" href="/atom.xml" title="Clown's Blog" type="application/atom+xml"><link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="generator" content="Hexo 5.4.0"></head><body><div id="container"><div class="left-col"><div class="overlay"></div><div class="intrude-less"><header class="inner" id="header"><a class="profilepic" href="/"><img class="js-avatar" lazy-src="/img/avatar.jpg"/></a><hgroup><h1 class="header-author"><a href="/">笑着哭的小丑</a></h1></hgroup><div class="switch-btn"><div class="icon"><div class="icon-ctn"><div class="icon-wrap icon-house" data-idx="0"><div class="birdhouse"></div><div class="birdhouse_holes"></div></div><div class="icon-wrap icon-ribbon hide" data-idx="1"><div class="ribbon"></div></div><div class="icon-wrap icon-link hide" data-idx="2"><div class="loopback_l"></div><div class="loopback_r"></div></div><div class="icon-wrap icon-me hide" data-idx="3"><div class="user"></div><div class="shoulder"></div></div></div></div><div class="tips-box hide"><div class="tips-arrow"></div><ul class="tips-inner"><li>菜单</li><li>标签</li><li>友情链接</li><li>关于我</li></ul></div></div><div class="switch-area"><div class="switch-wrap"><section class="switch-part switch-part1"><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></section><section class="switch-part switch-part2"><div class="widget tagcloud" id="js-tagcloud"><a href="/tags/ACM/" style="font-size: 20px;">ACM</a> <a href="/tags/Aho-Corasick-%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 10px;">Aho-Corasick 自动机</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/Baby-Step-Gaint-Step/" style="font-size: 11.67px;">Baby Step Gaint Step</a> <a href="/tags/Manacher/" style="font-size: 10px;">Manacher</a> <a href="/tags/SG-%E5%AE%9A%E7%90%86/" style="font-size: 10px;">SG 定理</a> <a href="/tags/Splay/" style="font-size: 10px;">Splay</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/keyword/" style="font-size: 10px;">keyword</a> <a href="/tags/protected/" style="font-size: 10px;">protected</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/web-%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web 开发</a> <a href="/tags/%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">专题训练</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" style="font-size: 11.67px;">中国剩余定理</a> <a href="/tags/%E4%B8%AD%E7%BA%A7/" style="font-size: 11.67px;">中级</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" style="font-size: 11.67px;">二分图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 13.33px;">动态规划</a> <a href="/tags/%E5%8E%9F%E6%A0%B9/" style="font-size: 11.67px;">原根</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 11.67px;">图论</a> <a href="/tags/%E5%A4%8D%E6%95%B0/" style="font-size: 10px;">复数</a> <a href="/tags/%E5%AD%97%E5%85%B8%E6%A0%91/" style="font-size: 10px;">字典树</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 11.67px;">字符串</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">学习笔记</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" style="font-size: 10px;">快速傅里叶变换</a> <a href="/tags/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/" style="font-size: 11.67px;">扩展欧几里得</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 11.67px;">技术</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 13.33px;">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 16.67px;">数据结构</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 16.67px;">数论</a> <a href="/tags/%E6%97%A2%E7%BA%A6%E5%89%A9%E4%BD%99%E7%B3%BB/" style="font-size: 10px;">既约剩余系</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%9B%BE/" style="font-size: 10px;">最大权闭合图</a> <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" style="font-size: 13.33px;">树链剖分</a> <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" style="font-size: 10px;">概率论</a> <a href="/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/" style="font-size: 11.67px;">欧拉函数</a> <a href="/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/" style="font-size: 11.67px;">状态压缩</a> <a href="/tags/%E7%9F%A9%E9%98%B5/" style="font-size: 10px;">矩阵</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E5%8F%98%E5%BD%A2/" style="font-size: 10px;">矩阵快速幂变形</a> <a href="/tags/%E7%B4%A0%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B/" style="font-size: 10px;">素数线性筛</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 11.67px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 13.33px;">线段树</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8F/" style="font-size: 10px;">组合游戏</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 11.67px;">网络流</a> <a href="/tags/%E8%A1%8C%E5%88%97%E5%BC%8F/" style="font-size: 10px;">行列式</a> <a href="/tags/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" style="font-size: 18.33px;">解题报告</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 11.67px;">计算机</a> <a href="/tags/%E8%AE%AD%E7%BB%83%E8%B5%9B/" style="font-size: 10px;">训练赛</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 10px;">语法分析</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%B6%E5%AF%BC%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">语法制导翻译</a> <a href="/tags/%E9%80%92%E6%8E%A8/" style="font-size: 10px;">递推</a> <a href="/tags/%E9%9A%BE%E9%A2%98/" style="font-size: 11.67px;">难题</a> <a href="/tags/%E9%AB%98%E7%BA%A7/" style="font-size: 10px;">高级</a></div></section><section class="switch-part switch-part3"><div id="js-friends"><a class="main-nav-link switch-friends-link" target="_blank" href="http://sparklingwind.github.io/">SparklingWind</a></div></section><section class="switch-part switch-part4"><div id="js-aboutme">时过境迁、惟愿此心不变、</div></section></div></div></header></div></div><div class="mid-col"><nav id="mobile-nav"><div class="overlay"><div class="slider-trigger"></div><h1 class="header-author js-mobile-header hide"></h1></div><div class="intrude-less"><header class="inner" id="header"><div class="profilepic"><img class="js-avatar"/></div><hgroup><h1 class="header-author"></h1></hgroup><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li><div class="clearfix"></div></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></header></div></nav><div class="body-wrap"><article class="article article-type-post" id="post-study/computer/fundamentals-of-compiling/grammer" itemscope="itemscope" itemprop="blogPost"><div class="article-meta"><a class="article-date" href="/study/computer/fundamentals-of-compiling/grammer/"><time datetime="2016-06-18T06:27:03.000Z" itemprop="datePublished">2016-06-18</time></a></div><div class="article-inner"><input class="isFancy" type="hidden"/><header class="article-header"><h1 class="article-title" itemprop="name">语法分析</h1></header><div class="article-info article-info-post"><div class="article-tag tagcloud"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" rel="tag">语法分析</a></li></ul></div><div class="clearfix"></div></div><div class="article-entry" itemprop="articleBody"><!-- by SparklingWind--><div class="toc-article" id="toc"><div class="toc-title">目录<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FIRST"><span class="toc-number">1.</span> <span class="toc-text">FIRST</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">计算方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hint"><span class="toc-number">1.2.</span> <span class="toc-text">Hint</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FOLLOW"><span class="toc-number">2.</span> <span class="toc-text">FOLLOW</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-1"><span class="toc-number">2.1.</span> <span class="toc-text">计算方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hint-1"><span class="toc-number">2.2.</span> <span class="toc-text">Hint</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%9A%84%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">自顶向下的语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LL-1-%E6%96%87%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">LL(1) 文法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">3.1.1.</span> <span class="toc-text">预测分析表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">自底向上的语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E8%8C%83-LR-0-%E9%A1%B9%E9%9B%86%E6%97%8F"><span class="toc-number">4.1.</span> <span class="toc-text">规范 LR(0) 项集族</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E9%9B%86%E7%9A%84%E9%97%AD%E5%8C%85"><span class="toc-number">4.1.1.</span> <span class="toc-text">项集的闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GOTO-%E5%87%BD%E6%95%B0"><span class="toc-number">4.1.2.</span> <span class="toc-text">GOTO 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E9%A1%B9%E9%9B%86%E6%97%8F"><span class="toc-number">4.1.3.</span> <span class="toc-text">构造项集族</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0-SLR-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">4.1.4.</span> <span class="toc-text">构造 SLR 语法分析表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E6%95%88-LR-1-%E9%A1%B9%E9%9B%86%E6%97%8F"><span class="toc-number">4.2.</span> <span class="toc-text">有效 LR(1) 项集族</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E9%9B%86%E7%9A%84%E9%97%AD%E5%8C%85-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">项集的闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hint-2"><span class="toc-number">4.2.2.</span> <span class="toc-text">Hint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GOTO-%E5%87%BD%E6%95%B0-1"><span class="toc-number">4.2.3.</span> <span class="toc-text">GOTO 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E9%A1%B9%E9%9B%86%E6%97%8F-1"><span class="toc-number">4.2.4.</span> <span class="toc-text">构造项集族</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E8%A7%84%E8%8C%83-LR-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">4.2.5.</span> <span class="toc-text">构造规范 LR(1) 语法分析表</span></a></li></ol></li></ol></li></ol></div></div><h1 id="FIRST"><a href="#FIRST" class="headerlink" title="FIRST"></a>FIRST</h1><h2 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h2><p>$FIRST(X)$</p>
+<ul>
+<li>如果 $X$ 是一个终结符号，那么 $FIRST(X) = X$</li>
+<li>如果 $X \rightarrow \varepsilon$ 是一个产生式，那么 $\varepsilon \in FIRST(X)$</li>
+<li>如果 $X$ 是一个非终结符号，且 $X \rightarrow Y_1Y_2\cdots Y_k$ 是一个产生式：<ul>
+<li>$FIRST(Y_1) \in FIRST(X)$</li>
+<li>对于 $1 \leqslant t \leqslant k$，如果 $\varepsilon \in FIRST(Y_s)$, $1\leqslant s &lt; t$ 成立，则 $FIRST(Y_t) \in FRIST(X)$。</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<hr>
+<p>$FIRST(X_1X_2\cdots X_k)$</p>
+<ul>
+<li>向 $FIRST(X_1X_2\cdots X_k)$ 加入 $FIRST(X_1)$ 的所有非 $\varepsilon$ 符号</li>
+<li>如果 $\varepsilon \in FIRST(X_1)$，再加入 $FIRST(X_2)$ 的所有非 $\varepsilon$ 符号；以此类推</li>
+<li>如过 $\varepsilon \in FIRST(X_t)$ 对 $1 \leqslant t\leqslant k$ 均成立，则将 $\varepsilon$ 加入 FIRST($X_1X_2\cdots X_k$) 中</li>
+</ul>
+<h2 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h2><p>FIRST 集合大概就是在语法分析树中，当前节点即将扩展的下一个节点的点集。</p>
+<h1 id="FOLLOW"><a href="#FOLLOW" class="headerlink" title="FOLLOW"></a>FOLLOW</h1><h2 id="计算方法-1"><a href="#计算方法-1" class="headerlink" title="计算方法"></a>计算方法</h2><p>  $S$ 是开始符号，$ 是输入右端的结束标记</p>
+<ul>
+<li>将 $ 放到 $FOLLOW(S)$ 中</li>
+<li>如果存在一个产生式 $A \rightarrow \alpha B\beta$，将 $FIRST(\beta)$ 中所有的非 $\varepsilon$ 符号放入到 $FOLLOW(B)$ 中</li>
+<li>如果存在一个产生式 $A \rightarrow \alpha B$ 或存在一个产生式 $A \rightarrow \alpha B\beta$ 且 $\varepsilon \in FIRST(\beta)$，将 $FOLLOW(A)$ 中所有符号放到 $FOLLOW(B)$ 中</li>
+</ul>
+<h2 id="Hint-1"><a href="#Hint-1" class="headerlink" title="Hint"></a>Hint</h2><p>FOLLOW 集合大概就是在语法分析树中，以当前节点为根节点的子树扩展完毕后，回溯时所即将扩展的下一个节点的点集。</p>
+<h1 id="自顶向下的语法分析"><a href="#自顶向下的语法分析" class="headerlink" title="自顶向下的语法分析"></a>自顶向下的语法分析</h1><h2 id="LL-1-文法"><a href="#LL-1-文法" class="headerlink" title="LL(1) 文法"></a>LL(1) 文法</h2><ul>
+<li>有二义性和左递归的文法都不是 $LL(1)$ 的</li>
+<li>一个文法是 $LL(1)$ 的，当且仅当 $G$ 的任意两个不同的产生式 $X \rightarrow \alpha \mid \beta$ 满足：<ul>
+<li>$FIRST(\alpha)$ 和 $FIRST(\beta)$ 是不相交的集合。也就是不存在左公因子。</li>
+<li>如果 $\epsilon \in FIRST(\alpha)$，则 $FIRST(X)$ 和 $FIRST(\beta)$ 是不相交的集合</li>
+<li>如果 $\epsilon \in FIRST(\beta)$，则 $FIRST(X)$ 和 $FIRST(\alpha)$ 是不相交的集合</li>
+</ul>
+</li>
+</ul>
+<h3 id="预测分析表"><a href="#预测分析表" class="headerlink" title="预测分析表"></a>预测分析表</h3><p>  对于 $G$ 的每个产生式 $A \rightarrow \alpha$</p>
+<ul>
+<li>对于 $FIRST(\alpha)$ 中的每个终结符号 $a$，将 $A \rightarrow \alpha$ 加入到 $M[A,a]$中</li>
+<li>如果 $\epsilon$ 在 $FIRST(\alpha)$ 中：<ul>
+<li>那么对于 $FOLLOW(A)$ 中的每个终结符号 $b$，将 $A \rightarrow \alpha$ 加入到 $M[A,b]$ 中</li>
+<li>如果 $ 在 $FOLLOW(A)$ 中，将 $A \rightarrow \alpha$ 加入到 $M[A,$]$ 中</li>
+</ul>
+</li>
+</ul>
+<h1 id="自底向上的语法分析"><a href="#自底向上的语法分析" class="headerlink" title="自底向上的语法分析"></a>自底向上的语法分析</h1><h2 id="规范-LR-0-项集族"><a href="#规范-LR-0-项集族" class="headerlink" title="规范 LR(0) 项集族"></a>规范 LR(0) 项集族</h2><h3 id="项集的闭包"><a href="#项集的闭包" class="headerlink" title="项集的闭包"></a>项集的闭包</h3><ul>
+<li><p>如果 $I$ 是文法 $G$ 的一个项集，那么 $CLOSURE(I)$ 可由下面两个规则从 $I$ 构造得到。</p>
+<ul>
+<li>将 $I$ 中的各个项加入到 $CLOSURE(I)$ 中；</li>
+<li>如果 $A \rightarrow \alpha \cdot B\beta$ 在 $CLOSURE(I)$ 中， $B \rightarrow \gamma$ 是一个产生式，并且项 $B \rightarrow \cdot ~\gamma$ 不在 $CLOSURE(I)$ 中，就将这个项加入其中。 不断应用这个规则，直到没有新项加入到 $CLOSURE(I)$ 中为止。</li>
+</ul>
+<blockquote>
+<p>直观地讲，CLOSURE$(I)$ 中的项 $A \rightarrow \alpha \cdot B\beta$ 表明在语法分析过程的某点上，<br>我们认为接下来可能会在输入中看到一个能够从 $B\beta$ 推导得到的子串。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="GOTO-函数"><a href="#GOTO-函数" class="headerlink" title="GOTO 函数"></a>GOTO 函数</h3><ul>
+<li>$GOTO(I,X)$，其中 $I$ 是一个项集，$X$ 是一个文法符号。</li>
+<li>$GOTO(I,X)$ 被定义为 $I$ 中所有形如 $[A \rightarrow \alpha \cdot X\beta]$ 的项所对应的项 $[A \rightarrow \alpha X \cdot \beta]$ 的集合的<strong>闭包</strong>。<blockquote>
+<p>直观地讲，GOTO 函数用于定义一个文法的 LR(0) 自动机中的转换，描述了当输入为 $X$ 时离开状态 $I$ 的转换。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="构造项集族"><a href="#构造项集族" class="headerlink" title="构造项集族"></a>构造项集族</h3><ol>
+<li>初始时，$C=I_0=\Big\lbrace CLOSURE\big( \big\lbrace \big[ S’ \rightarrow \cdot S \big] \big\rbrace \big)\Big\rbrace$ </li>
+<li>对于 $C$ 中的每个项集 $I$：    - 对于每个文法符号 $X$：<ul>
+<li>如果 $GOTO(I,X)$ 非空且不在 $C$ 中，将 $GOTO(I,X)$ 加入到 $C$ 中</li>
+</ul>
+</li>
+<li>重复过程 2</li>
+</ol>
+<h3 id="构造-SLR-语法分析表"><a href="#构造-SLR-语法分析表" class="headerlink" title="构造 SLR 语法分析表"></a>构造 SLR 语法分析表</h3><ol>
+<li>构造 $G’$ 的规范 $LR(0)$ 项集族 $C=\lbrace I_0,I_1,\cdots,I_n \rbrace$。</li>
+<li>根据 $I_i$ 构造得到状态 $i$。状态 $i$ 的语法分析动作按照下面的方法决定：    - 如果 $[A \rightarrow \alpha \cdot a\beta]$ 在 $I_i$ 中，并且 $GOTO(I_i,a)=I_j$， 令 $ACTION[i,a]=s_j$，即 <strong>移入</strong> $j$；其中，$a$ 必须是终结符。     - 如果 $[A \rightarrow \alpha \cdot]$ 在 $I_i$ 中，那么对于 $FOLLOW(A)$ 中的所有 $a$， 令 $ACTION[i,a]=r_j$，即 <strong>规约</strong> $j$；其中，**$j$ 为产生式 $A \rightarrow \alpha$ 的编号**；$A \neq S’$。    - 如果 $[S’ \rightarrow S \cdot]$ 在 $I_i$ 中，令 $ACTION[i,$]=acc$，即 <strong>接受</strong>。</li>
+<li>如果根据上面的规则生成了任何冲突动作，则这个文法不是 $SLR(1)$ 的。<br> 状态 $i$ 对于各个非终结符号 $A$ 的 $GOTO$ 转换使用下面的规则构造得到：<ul>
+<li>如果 $GOTO(I_i,A)=I_j$， 那么，$GOTO[i,A]=j$。</li>
+</ul>
+</li>
+<li>规则(2)和规则(3) 没有定义的条目均设为“报错”。</li>
+<li>语法分析器的初始状态是根据 $[S’ \rightarrow \cdot S]$ 所在项集构造得到的状态。</li>
+</ol>
+<h2 id="有效-LR-1-项集族"><a href="#有效-LR-1-项集族" class="headerlink" title="有效 LR(1) 项集族"></a>有效 LR(1) 项集族</h2><ul>
+<li>可行前缀<ul>
+<li>可以出现在一个 <strong>移入–规约</strong> 的语法分析器的栈中的最右句型前缀，称为 <strong>可行前缀</strong></li>
+</ul>
+</li>
+<li>$LR(1)$ 项<ul>
+<li>形如 $\big[ A \rightarrow \alpha \cdot \beta, a \big]$ 的项，称为 <strong>$LR(1)$ 项</strong>；其中 $A \rightarrow \alpha\beta$ 是一个产生式，$a$ 是一个终结符或右端结束标记 $</li>
+<li>形如 $\big[ A \rightarrow \alpha \cdot, a \big]$ 的项只有在下一个输入符号为 $a$ 时才选择 $A \rightarrow \alpha$ 规约。</li>
+</ul>
+</li>
+<li>可行前缀的有效项<ul>
+<li>$LR(1)$ 项 $\big[ A \rightarrow \alpha \cdot \beta, a \big]$ 对于可行前缀 $\gamma$ 有效的条件是：<ul>
+<li>存在一个最右推导 $S \overset{*}{\underset{rm}{\Rightarrow}} \delta A\omega \underset{rm}\Rightarrow \delta\alpha\beta\omega$，且</li>
+<li>$\gamma = \delta\alpha$，且</li>
+<li>要么 $a$ 是 $\omega$ 的第一个符号，要么 $\omega=\varepsilon$ 且 $a=$$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="项集的闭包-1"><a href="#项集的闭包-1" class="headerlink" title="项集的闭包"></a>项集的闭包</h3><p>如果 $\big[ A \rightarrow \alpha \cdot B\beta, a \big]$ 对可行前缀 $\gamma=\delta\alpha$ 有效， 那么必然存在一个最右推导 $S \overset{*}{\underset{rm}{\Rightarrow}} \delta A\alpha x \underset{rm}\Rightarrow \delta\alpha B\beta ax$。 假设 $\beta ax$ 推导出终结符号串 $by$，那么对于某个形如 $B \rightarrow \eta$ 的产生式，有推导 $S \overset{*}{\underset{rm}{\Rightarrow}} \gamma Bby \underset{rm}\Rightarrow \gamma\eta by$。<br>因此，$\big[ B \rightarrow \cdot\eta, b \big]$ 是 $\gamma$ 的有效项。其中，$b \in FIRST(\beta a)$。</p>
+<ul>
+<li>如果 $I$ 是文法 $G$ 的一个项集，那么 $CLOSURE(I)$ 可由下列规则从 $I$ 中构造得到。<ul>
+<li>对于 $I$ 中的每个项 $\big[ A \rightarrow \alpha\cdot B\beta,a \big]$<ul>
+<li>对于 $G’$ 中的每个产生式 $B \rightarrow \gamma$<ul>
+<li>对于 $FIRST(\beta a)$ 中的每个终结符号 $b$<ul>
+<li>将 $\big[ B \rightarrow \gamma, b \big]$ 加入到集合 $I$ 中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Hint-2"><a href="#Hint-2" class="headerlink" title="Hint"></a>Hint</h3><ul>
+<li><p>本质上，$SLR$ 是利用 $LR(0)$ 自动机能够识别可行前缀这一事实构造的语法分析方案；$LR(1)$ 在此基础上考虑了对可行前缀的 <strong>有效性</strong>。</p>
+</li>
+<li><p>$LR(1)$ 和 $LR(0)$ 构造闭包的算法的区别在于：</p>
+<ul>
+<li>不再对于任意的 $\big[ A \rightarrow \alpha\cdot B\beta ]$ 添加到闭包中了， 这样做的目的是为了减少 <strong>移入–规约</strong> 冲突。<br>也就是，如果 $I$ 中有产生式 $A \rightarrow \alpha\cdot B\beta$，对于产生式 $B \rightarrow \eta$：<ul>
+<li>SLR：直接将 $B \rightarrow \eta$ 加进 $I$ 的闭包中</li>
+<li>LR(1)：由于有一个向前看符号，不妨记 $A \rightarrow \alpha\cdot B\beta$ 的向前看符号为 $a$，那么仅当满足 $a \in FIRST(\beta a)$ 时才能将 $B \rightarrow \eta$ 加进 $I$ 的闭包</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="GOTO-函数-1"><a href="#GOTO-函数-1" class="headerlink" title="GOTO 函数"></a>GOTO 函数</h3><ul>
+<li>计算 $GOTO(I,X)$<ul>
+<li>将 $J$ 初始化为空集</li>
+<li>对于 $I$ 中的每个项  $\big[ A \rightarrow \alpha\cdot X\beta,a \big]$<ul>
+<li>将项  $\big[ A \rightarrow \alpha X\cdot \beta,a \big]$ 加入到集合 $J$ 中</li>
+</ul>
+</li>
+<li>返回 $CLOSURE(J)$</li>
+</ul>
+</li>
+</ul>
+<h3 id="构造项集族-1"><a href="#构造项集族-1" class="headerlink" title="构造项集族"></a>构造项集族</h3><ul>
+<li>初始时， $C=I_0=\Big\lbrace CLOSURE\big( \big\lbrace \big[ S’ \rightarrow \cdot S,$ \big] \big\rbrace \big)\Big\rbrace$ <ul>
+<li>对于 $C$ 中的每个项集 $I$<ul>
+<li>对于每个文法符号 $X$<ul>
+<li>如果 $GOTO(I,X)$ 非空且不在 $C$ 中<ul>
+<li>将 $GOTO(I,X)$ 加入 $C$ 中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="构造规范-LR-1-语法分析表"><a href="#构造规范-LR-1-语法分析表" class="headerlink" title="构造规范 LR(1) 语法分析表"></a>构造规范 LR(1) 语法分析表</h3><ol>
+<li>构造 $G’$ 的规范 $LR(0)$ 项集族 $C=\lbrace I_0,I_1,\cdots,I_n \rbrace$。</li>
+<li>根据 $I_i$ 构造得到状态 $i$。状态 $i$ 的语法分析动作按照下面的方法决定：    - 如果 $[A \rightarrow \alpha \cdot a\beta, b]$ 在 $I_i$ 中，并且 $GOTO(I_i,a)=I_j$， 令 $ACTION[i,a]=s_j$，即 <strong>移入</strong> $j$；其中，$a$ 必须是终结符。     - 如果 $[A \rightarrow \alpha \cdot, a]$ 在 $I_i$ 中，且 $A \neq S’$； 那么令 $ACTION[i,a]=r_j$，即 <strong>规约</strong> $j$；其中，**$j$ 为产生式 $A \rightarrow \alpha$ 的编号**。    - 如果 $[S’ \rightarrow S \cdot, $]$ 在 $I_i$ 中，令 $ACTION[i,$]=acc$，即 <strong>接受</strong>。</li>
+<li>如果根据上面的规则生成了任何冲突动作，则这个文法不是 $LR(1)$ 的。<br> 状态 $i$ 对于各个非终结符号 $A$ 的 $GOTO$ 转换使用下面的规则构造得到：<ul>
+<li>如果 $GOTO(I_i,A)=I_j$， 那么，$GOTO[i,A]=j$。</li>
+</ul>
+</li>
+<li>规则(2)和规则(3) 没有定义的条目均设为“报错”。</li>
+<li>语法分析器的初始状态是根据 $[S’ \rightarrow \cdot S, $]$ 所在项集构造得到的状态。</li>
+</ol>
+</div></div><nav id="article-nav"><a class="article-nav-link-wrap" id="article-nav-newer" href="/study/computer/fundamentals-of-compiling/exercise/"><strong class="article-nav-caption"></strong><div class="article-nav-title">编译原理-语法制导翻译实现计算器</div></a><a class="article-nav-link-wrap" id="article-nav-older" href="/acm/contest/baiduzhixing/2016/"><div class="article-nav-title">百度之星 2016 解题报告</div><strong class="article-nav-caption">></strong></a></nav></article><div id="gitalk-container"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  ...JSON.parse('{"clientID":"be8f64bb869585cb410e","clientSecret":"8c4cb258aecb72ccc1af7aa76380104cace8f816","repo":"LittleClown.github.io","owner":"littleclown","admin":["littleclown","lemon-clown"],"id":"window.location.pathname","distractionFreeMode":false}'),
+})
+
+gitalk.render('gitalk-container')</script></div></div><footer id="footer"><div class="outer"><div id="footer-info"><div class="footer-left">&copy; 2021-06-13 笑着哭的小丑</div><div class="footer-right">青春是低吟浅唱、你是我学不会的歌、</div></div></div></footer></div>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script>var yiliaConfig = {
+  fancybox:     true,
+  mathjax:      true,
+  animate:      true,
+  isHome:       false,
+  isPost:       true,
+  isArchive:    false,
+  isTag:        false,
+  isCategory:   false,
+  open_in_new:  false,
+}
+</script><!-- by SparklingWind-->
+<script src="/js/clipboard.min.js"></script>
+
+<script src="/js/require.js"></script>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+<div id="totop"><img src="/img/scrollup.png" title="返回顶部"></div><div id="goback"><img src="/img/goback.png" title="返回上一位置"></div><!-- by SparklingWind--><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  showMathMenu: false,
+  skipStartupTypeset: true,
+  showProcessingMessage: false,
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  TeX: {
+    equationNumbers: {
+      autoNumber: 'AMS',
+    },
+  },
+  messageStyle: 'none',
+  SVG: {
+    blacker: 1
+  },
+  styles: {
+    '.MathJax_Display': {
+      'user-select': 'none',
+    },
+  },
+});
+
+MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.body])</script><!-- by SparklingWind--><script>var cnzz_protocol = ("https:" == document.location.protocol? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1259020930'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1259020930' type='text/javascript'%3E%3C/script%3E"))</script><!-- by SparklingWind--></div></body></html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>前端学习之 css(1) | Clown's Blog</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="边框 border-radius圆角边框效果 语法123border-radius: 5px; &#x2F;* 四个角的半径均为 5px 的圆角 *&#x2F;border-radius: 5px 7px; &#x2F;* 左上角和右下角半径为 5px；右上角和左下角半径为 7px*&#x2F;border-radius: 5px 4px 3px 7px; &#x2F;*依次为 左上角、右上角、右下角、左下角*&#x2F; 使用 border-radius">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端学习之 css(1)">
+<meta property="og:url" content="http://littleclown.github.io/study/codding/projects/web/frontend/css/1/index.html">
+<meta property="og:site_name" content="Clown&#39;s Blog">
+<meta property="og:description" content="边框 border-radius圆角边框效果 语法123border-radius: 5px; &#x2F;* 四个角的半径均为 5px 的圆角 *&#x2F;border-radius: 5px 7px; &#x2F;* 左上角和右下角半径为 5px；右上角和左下角半径为 7px*&#x2F;border-radius: 5px 4px 3px 7px; &#x2F;*依次为 左上角、右上角、右下角、左下角*&#x2F; 使用 border-radius">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-09-14T13:35:17.000Z">
+<meta property="article:modified_time" content="2019-01-03T02:22:28.639Z">
+<meta property="article:author" content="笑着哭的小丑">
+<meta property="article:tag" content="web 开发">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary"><link rel="alternative" href="/atom.xml" title="Clown's Blog" type="application/atom+xml"><link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="generator" content="Hexo 5.4.0"></head><body><div id="container"><div class="left-col"><div class="overlay"></div><div class="intrude-less"><header class="inner" id="header"><a class="profilepic" href="/"><img class="js-avatar" lazy-src="/img/avatar.jpg"/></a><hgroup><h1 class="header-author"><a href="/">笑着哭的小丑</a></h1></hgroup><div class="switch-btn"><div class="icon"><div class="icon-ctn"><div class="icon-wrap icon-house" data-idx="0"><div class="birdhouse"></div><div class="birdhouse_holes"></div></div><div class="icon-wrap icon-ribbon hide" data-idx="1"><div class="ribbon"></div></div><div class="icon-wrap icon-link hide" data-idx="2"><div class="loopback_l"></div><div class="loopback_r"></div></div><div class="icon-wrap icon-me hide" data-idx="3"><div class="user"></div><div class="shoulder"></div></div></div></div><div class="tips-box hide"><div class="tips-arrow"></div><ul class="tips-inner"><li>菜单</li><li>标签</li><li>友情链接</li><li>关于我</li></ul></div></div><div class="switch-area"><div class="switch-wrap"><section class="switch-part switch-part1"><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></section><section class="switch-part switch-part2"><div class="widget tagcloud" id="js-tagcloud"><a href="/tags/ACM/" style="font-size: 20px;">ACM</a> <a href="/tags/Aho-Corasick-%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 10px;">Aho-Corasick 自动机</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/Baby-Step-Gaint-Step/" style="font-size: 11.67px;">Baby Step Gaint Step</a> <a href="/tags/Manacher/" style="font-size: 10px;">Manacher</a> <a href="/tags/SG-%E5%AE%9A%E7%90%86/" style="font-size: 10px;">SG 定理</a> <a href="/tags/Splay/" style="font-size: 10px;">Splay</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/keyword/" style="font-size: 10px;">keyword</a> <a href="/tags/protected/" style="font-size: 10px;">protected</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/web-%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web 开发</a> <a href="/tags/%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83/" style="font-size: 11.67px;">专题训练</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" style="font-size: 11.67px;">中国剩余定理</a> <a href="/tags/%E4%B8%AD%E7%BA%A7/" style="font-size: 11.67px;">中级</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" style="font-size: 11.67px;">二分图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 13.33px;">动态规划</a> <a href="/tags/%E5%8E%9F%E6%A0%B9/" style="font-size: 11.67px;">原根</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 11.67px;">图论</a> <a href="/tags/%E5%A4%8D%E6%95%B0/" style="font-size: 10px;">复数</a> <a href="/tags/%E5%AD%97%E5%85%B8%E6%A0%91/" style="font-size: 10px;">字典树</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 11.67px;">字符串</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">学习笔记</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" style="font-size: 10px;">快速傅里叶变换</a> <a href="/tags/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/" style="font-size: 11.67px;">扩展欧几里得</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 11.67px;">技术</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 13.33px;">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 16.67px;">数据结构</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 16.67px;">数论</a> <a href="/tags/%E6%97%A2%E7%BA%A6%E5%89%A9%E4%BD%99%E7%B3%BB/" style="font-size: 10px;">既约剩余系</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%9B%BE/" style="font-size: 10px;">最大权闭合图</a> <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" style="font-size: 13.33px;">树链剖分</a> <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" style="font-size: 10px;">概率论</a> <a href="/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/" style="font-size: 11.67px;">欧拉函数</a> <a href="/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/" style="font-size: 11.67px;">状态压缩</a> <a href="/tags/%E7%9F%A9%E9%98%B5/" style="font-size: 10px;">矩阵</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%E5%8F%98%E5%BD%A2/" style="font-size: 10px;">矩阵快速幂变形</a> <a href="/tags/%E7%B4%A0%E6%95%B0%E7%BA%BF%E6%80%A7%E7%AD%9B/" style="font-size: 10px;">素数线性筛</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 11.67px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 13.33px;">线段树</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8F/" style="font-size: 10px;">组合游戏</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 11.67px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 11.67px;">网络流</a> <a href="/tags/%E8%A1%8C%E5%88%97%E5%BC%8F/" style="font-size: 10px;">行列式</a> <a href="/tags/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" style="font-size: 18.33px;">解题报告</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 11.67px;">计算机</a> <a href="/tags/%E8%AE%AD%E7%BB%83%E8%B5%9B/" style="font-size: 10px;">训练赛</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 10px;">语法分析</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%B6%E5%AF%BC%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">语法制导翻译</a> <a href="/tags/%E9%80%92%E6%8E%A8/" style="font-size: 10px;">递推</a> <a href="/tags/%E9%9A%BE%E9%A2%98/" style="font-size: 11.67px;">难题</a> <a href="/tags/%E9%AB%98%E7%BA%A7/" style="font-size: 10px;">高级</a></div></section><section class="switch-part switch-part3"><div id="js-friends"><a class="main-nav-link switch-friends-link" target="_blank" href="http://sparklingwind.github.io/">SparklingWind</a></div></section><section class="switch-part switch-part4"><div id="js-aboutme">时过境迁、惟愿此心不变、</div></section></div></div></header></div></div><div class="mid-col"><nav id="mobile-nav"><div class="overlay"><div class="slider-trigger"></div><h1 class="header-author js-mobile-header hide"></h1></div><div class="intrude-less"><header class="inner" id="header"><div class="profilepic"><img class="js-avatar"/></div><hgroup><h1 class="header-author"></h1></hgroup><nav class="header-menu"><ul><li><a href="/">主页</a></li><li><a href="/archives">文章</a></li><div class="clearfix"></div></ul></nav><nav class="header-nav"><div class="social"><a class="github" target="_blank" href="https://github.com/LittleClown" title="github">github</a></div></nav></header></div></nav><div class="body-wrap"><article class="article article-type-post" id="post-study/codding/projects/web/frontend/css/1" itemscope="itemscope" itemprop="blogPost"><div class="article-meta"><a class="article-date" href="/study/codding/projects/web/frontend/css/1/"><time datetime="2016-09-14T13:35:17.000Z" itemprop="datePublished">2016-09-14</time></a></div><div class="article-inner"><input class="isFancy" type="hidden"/><header class="article-header"><h1 class="article-title" itemprop="name">前端学习之 css(1)</h1></header><div class="article-info article-info-post"><div class="article-tag tagcloud"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web-%E5%BC%80%E5%8F%91/" rel="tag">web 开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul></div><div class="clearfix"></div></div><div class="article-entry" itemprop="articleBody"><!-- by SparklingWind--><div class="toc-article" id="toc"><div class="toc-title">目录<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%B9%E6%A1%86"><span class="toc-number">1.</span> <span class="toc-text">边框</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-number">2.</span> <span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E4%B8%8E%E5%AD%97%E4%BD%93"><span class="toc-number">3.</span> <span class="toc-text">文字与字体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8E%E8%83%8C%E6%99%AF%E7%9B%B8%E5%85%B3%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">与背景相关的样式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">5.1.</span> <span class="toc-text">属性选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E6%80%A7%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">5.2.</span> <span class="toc-text">结构性伪类选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E9%80%89%E6%8B%A9%E5%99%A8-root"><span class="toc-number">5.2.1.</span> <span class="toc-text">根选择器 :root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%A6%E5%AE%9A%E9%80%89%E6%8B%A9%E5%99%A8-not"><span class="toc-number">5.2.2.</span> <span class="toc-text">否定选择器 :not</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%80%89%E6%8B%A9%E5%99%A8-empty"><span class="toc-number">5.2.3.</span> <span class="toc-text">空选择器 :empty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E9%80%89%E6%8B%A9%E5%99%A8-target"><span class="toc-number">5.2.4.</span> <span class="toc-text">目标选择器 :target</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E5%8C%85%E5%90%AB%E9%80%89%E6%8B%A9%E5%99%A8-E-gt-F"><span class="toc-number">5.2.5.</span> <span class="toc-text">子包含选择器 E &gt; F</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-number">5.2.6.</span> <span class="toc-text">其它</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">5.3.</span> <span class="toc-text">伪元素选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#selection"><span class="toc-number">5.3.1.</span> <span class="toc-text">::selection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#before-%E5%92%8C-after"><span class="toc-number">5.3.2.</span> <span class="toc-text">:before 和 :after</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E5%BD%A2%E4%B8%8E%E5%8A%A8%E7%94%BB"><span class="toc-number">6.</span> <span class="toc-text">变形与动画</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rotate"><span class="toc-number">6.1.</span> <span class="toc-text">rotate()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#skew"><span class="toc-number">6.2.</span> <span class="toc-text">skew()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scale"><span class="toc-number">6.3.</span> <span class="toc-text">scale()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#translate"><span class="toc-number">6.4.</span> <span class="toc-text">translate()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matrix"><span class="toc-number">6.5.</span> <span class="toc-text">matrix()</span></a></li></ol></li></ol></div></div><h1 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h1><ul>
+<li>border-radius<br>圆角边框效果<ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-radius</span>: <span class="number">5px</span>; <span class="comment">/* 四个角的半径均为 5px 的圆角 */</span></span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">5px</span> <span class="number">7px</span>; <span class="comment">/* 左上角和右下角半径为 5px；右上角和左下角半径为 7px*/</span></span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">5px</span> <span class="number">4px</span> <span class="number">3px</span> <span class="number">7px</span>; <span class="comment">/*依次为 左上角、右上角、右下角、左下角*/</span></span><br></pre></td></tr></table></figure>
+使用 <code>border-radius</code> 时，需要给边框设置宽度和高度</li>
+<li>效果<br>  可以使用 <code>border-radius</code> 画实心圆，只要满足：height=width, border-radius=$\frac{1}{2} \times $width。</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li><p>box-shadow<br>向盒子添加阴影效果；支持多重添加</p>
+<ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">box-shadow</span>: X 偏移量 Y 偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</span><br></pre></td></tr></table></figure>
+X 偏移量和 Y 偏移量可以看做光线投影过来的方向；投影方式：设置了 <code>inset</code> 时为 <strong>内部阴影</strong>，否则为 <strong>外部阴影</strong></li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/382">参考链接</a></strong></em></li>
+</ul>
+</li>
+<li><p>border-image<br>为边框应用背景图片</p>
+<ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-image</span>: <span class="built_in">url</span>(<span class="string">xxx.png</span>) <span class="number">70</span> <span class="number">70</span> <span class="number">70</span> <span class="number">70</span> 延伸方式</span><br></pre></td></tr></table></figure>
+其中，延伸方式为：<code>round</code> （平铺）；<code>repeat</code> （重复）；<code>stretch</code> （拉伸）</li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/383">参考链接</a></strong></em></li>
+</ul>
+</li>
+</ul>
+<h1 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h1><ul>
+<li>渐变色彩<ul>
+<li>线性渐变<ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linear-gradient(方向,颜色点<span class="number">1</span>,颜色点<span class="number">2</span>,...颜色点n);</span><br></pre></td></tr></table></figure>
+方向可以用角度表示，单位为 deg，如： 0deg、90deg、123deg 等<br>  方向也可以用关键字表示，如：<code>to top</code>、<code>to right</code>、<code>to bottom</code>、<code>to left</code>、<code>to top left</code> 等<br>颜色点：每个颜色点有一个颜色值表示，在线上依次紧邻排布</li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/617">参考链接</a></strong></em></li>
+</ul>
+</li>
+<li>径向渐变<ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">radial-gradient(center, shape, size, <span class="attribute">color</span>-stop1, ..., <span class="attribute">color</span>-stopn);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>center 渐变的起点；可以为百分比；默认在图形的中心</li>
+<li>shape  渐变的形状： <code>ellipse</code> 表示椭圆形，<code>circle</code> 表示圆形，默认为 <code>ellipse</code>；<ul>
+<li>size 大小：<code>closest-side</code> 最近边；<code>closest-corner</code> 最近角；<code>fathest-side</code> 最远边；<code>fathest-corner</code> 最远角；</li>
+</ul>
+</li>
+<li>start-color 颜色点</li>
+</ul>
+</li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.cnblogs.com/rainman/p/5133685.html">参考链接</a></strong></em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="文字与字体"><a href="#文字与字体" class="headerlink" title="文字与字体"></a>文字与字体</h1><ul>
+<li>text-overflow<br>用于说明文字溢出时用什么方式显示： <code>clip</code> 表示剪切；<code>ellipsis</code> 表示显示省略标记。<br>为了产生理想的省略号的效果，还需 <strong>强制文本在一行内显示 <code>white-space: nowrap;</code></strong> 及 <strong>溢出内容隐藏 <code>overflow: hidden;</code></strong><ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br><span class="line"><span class="attribute">white-space</span>: nowrap;</span><br></pre></td></tr></table></figure></li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/630">参考链接</a></strong></em></li>
+</ul>
+</li>
+<li>word-wrap<br>用来指定当前行溢出时是否断开换行<ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">word-wrap</span>: normal | break-word;</span><br></pre></td></tr></table></figure>
+其中，<code>normal</code>（默认值） 表示控制连续文本换行；<code>break-word</code> 表示内容将在边界内换行</li>
+</ul>
+</li>
+<li>@font-face<ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: 字体名称;</span><br><span class="line">  <span class="attribute">src</span>: 字体文件在服务器上的相对或绝对路径；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+这样就可以加载出本地没有但服务器上有的字体了</li>
+</ul>
+</li>
+<li>text-shadow<ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">text-shadow</span>: X-Offset Y-Offset Blur Color;</span><br></pre></td></tr></table></figure>
+其中，X-Offset 表示阴影的水平偏移距离；Y-Offset 表示阴影的垂直偏移距离； Blur 表示阴影的模糊程度，值越大越模糊（不可为负）；Color 表示阴影的颜色</li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/645">参考链接</a></strong></em></li>
+</ul>
+</li>
+</ul>
+<h1 id="与背景相关的样式"><a href="#与背景相关的样式" class="headerlink" title="与背景相关的样式"></a>与背景相关的样式</h1><ul>
+<li><p>background-origin<br>设置元素背景图片的 <strong>原始起始位置</strong></p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-origin</span>: border-box | padding-box | content-box;</span><br></pre></td></tr></table></figure>
+<p>参数分别表示背景图片从 <strong>边框</strong>、<strong>内边框（默认值）</strong>、<strong>内容区域</strong> 显示<br><strong style="color: red;">注意，这个属性仅当背景为 no-repeat 时有效；否则将从 <i>边框</i> 开始显示。</strong></p>
+</li>
+<li><p><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/657">参考链接</a></strong></em></p>
+</li>
+</ul>
+</li>
+<li><p>background-clip<br>对背景图片做适当 <strong>裁剪</strong> 以适应实际需要</p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-clip</span>: border-box | padding-box | content-box | no-clip;</span><br></pre></td></tr></table></figure>
+<p>参数分别表示从 <strong>边框</strong>、<strong>内边框（默认值）</strong>、<strong>内容区域</strong> 向外裁剪背景; <code>no-clip</code> 表示不裁剪</p>
+</li>
+<li><p><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/658">参考链接</a></strong></em></p>
+</li>
+</ul>
+</li>
+<li><p>background-size<br>设置背景图片的大小，以 <strong>长度值</strong> 或 <strong>百分比</strong> 显示；还可以通过 <strong>contain</strong> 和 <strong>cover</strong> 来对图片进行缩放</p>
+<ul>
+<li>语法<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-size</span>: auto | &lt;长度值&gt; | &lt;百分比&gt; | contain | cover;</span><br></pre></td></tr></table></figure></li>
+<li>取值说明<ol>
+<li><code>auto</code>：默认值，不改变背景图片的原是尺寸</li>
+<li><code>&lt;长度值&gt;</code>：<strong>成对出现时</strong>，如：<code>background-size: 20px 30px;</code> 表示将背景图片宽度设为 20px，高度设为 30px；<strong>只设置一个值时</strong>，表示长宽值相同</li>
+<li><code>&lt;百分比&gt;</code>：<strong>成对出现时</strong>，如：<code>background-size: 20% 30%;</code> 表示将背景图片宽度设为其所在容器的宽度的 20%，高度设为其所在容器的宽度的 30%；<strong>只设置一个值时</strong>，表示长宽比例相同</li>
+<li><code>cover</code>：将背景图片缩放至铺满整个容器为止</li>
+<li><code>contain</code>：将背景图片缩放至某一边抵住容器边缘（上下抵住 ，或左右抵住）</li>
+</ol>
+</li>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/691">参考链接</a></strong></em></li>
+</ul>
+</li>
+<li><p>multiple backgrounds</p>
+<ul>
+<li><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/692">多背景技术</a></strong></em></li>
+</ul>
+</li>
+<li><p><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/1881">综合练习1</a></strong></em></p>
+</li>
+</ul>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><table>
+<thead>
+<tr>
+<th align="center">属性选择器</th>
+<th align="center">功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">E[att^=”val”]</td>
+<td align="center">选择匹配拥有属性 att 且 <strong>att 属性值是以 val 开头的字符串</strong> 的元素 E</td>
+</tr>
+<tr>
+<td align="center">E[att$=”val”]</td>
+<td align="center">选择匹配拥有属性 att 且 <strong>att 属性值是以 val 结尾的字符串</strong> 的元素 E</td>
+</tr>
+<tr>
+<td align="center">E[att*=”val”]</td>
+<td align="center">选择匹配拥有属性 att 且 <strong>att 属性值中存在一子串为 val 的字符串</strong> 的元素 E</td>
+</tr>
+</tbody></table>
+<h2 id="结构性伪类选择器"><a href="#结构性伪类选择器" class="headerlink" title="结构性伪类选择器"></a>结构性伪类选择器</h2><h3 id="根选择器-root"><a href="#根选择器-root" class="headerlink" title="根选择器 :root"></a><strong>根选择器 :root</strong></h3><p>在 HTML 文档中，根元素始终是 &lt;html&gt;。<br>通过 :root 选择器可以设置背景颜色</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123; </span><br><span class="line">  <span class="attribute">background</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 或者 */</span></span><br><span class="line"><span class="selector-tag">html</span> &#123; </span><br><span class="line">  <span class="attribute">background</span>: purple;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="否定选择器-not"><a href="#否定选择器-not" class="headerlink" title="否定选择器 :not"></a><strong>否定选择器 :not</strong></h3><p>选择除符合否定条件的所有元素。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:not</span>(<span class="selector-attr">[id=<span class="string">&quot;XXX&quot;</span>]</span>) &#123; </span><br><span class="line">  <span class="attribute">background</span>: purple; <span class="comment">/*对所有 id 不是 &quot;XXX&quot; 的 div 元素有效 */</span> </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:not</span>(<span class="selector-attr">[type=<span class="string">&quot;submit&quot;</span>]</span>) &#123; </span><br><span class="line">  <span class="attribute">background</span>: orange; <span class="comment">/*对所有不是 submit 类型的 input 元素有效*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="空选择器-empty"><a href="#空选择器-empty" class="headerlink" title="空选择器 :empty"></a><strong>空选择器 :empty</strong></h3><p>选择没有任何内容（空白字符也不可有）的元素。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:empty</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 对于 &lt;div&gt;&lt;/div&gt; 有效； 对于 &lt;div&gt; &lt;/div&gt; 无效。 */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="目标选择器-target"><a href="#目标选择器-target" class="headerlink" title="目标选择器 :target"></a><strong>目标选择器 :target</strong></h3><!-- <iframe src="target1.html" width="200" height="400" style="float: right; padding-top: 0em;"></iframe> -->
+
+<p>匹配文档（页面）的 <strong>url 的某个标识符的目标元素</strong>。<br>具体来说，触发元素的 url 中的标识符通常会包含一个 #号，后面带有一个 <strong>标识符名称</strong>。</p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#brand&quot;</span>&gt;</span>Brand<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;brand&quot;</span>&gt;</span></span><br><span class="line">  content for Brand.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#jake&quot;</span>&gt;</span>Jake<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;jake&quot;</span>&gt;</span></span><br><span class="line">  content for jake.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#aron&quot;</span>&gt;</span>Aron<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;aron&quot;</span>&gt;</span></span><br><span class="line">  content for aron.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#brand</span><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: orange;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#jake</span><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: blue;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#aron</span><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/736">参考链接</a></strong></em></p>
+<h3 id="子包含选择器-E-gt-F"><a href="#子包含选择器-E-gt-F" class="headerlink" title="子包含选择器 E &gt; F"></a><strong>子包含选择器 E &gt; F</strong></h3><p>匹配 <code>满足的 E 的元素</code> 的 <code>满足 F 的子元素</code>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span><span class="selector-class">.lemon</span> <span class="selector-tag">td</span> &gt; <span class="selector-tag">p</span> &#123; &#125; <span class="comment">/* 匹配 td 的子元素中所有的 p 元素；且 td 从 table 继承，该 table 元素有一个 lemon 的 class 属性 */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><table>
+<thead>
+<tr>
+<th align="center">选择器</th>
+<th align="center">用法</th>
+<th align="center">参考链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:first-child</td>
+<td align="center">顾名思义</td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/737">imooc</a></strong></em></td>
+</tr>
+<tr>
+<td align="center">:last-child</td>
+<td align="center">顾名思义</td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/738">imooc</a></strong></em></td>
+</tr>
+<tr>
+<td align="center">:nth-child(n)</td>
+<td align="center"><ul><li>匹配父元素第 $n$ 个子元素</li><li>可以采用 $3n+1$ 以匹配第 1、4、7… 个子元素</li><li>可以用 <code>even</code> 表示 $2n$，<code>odd</code> 表示 $2n+1$</li></ul></td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/739">imooc</a></strong></em></td>
+</tr>
+<tr>
+<td align="center">:nth-last-child(n)</td>
+<td align="center">与 <code>:nth-child(n)</code> 相比是 <code>逆序</code> 计数的</td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/740">imooc</a></strong></em></td>
+</tr>
+<tr>
+<td align="center">:first-of-type</td>
+<td align="center"><ul><li>和 <code>:first-child</code> 类似，但匹配同类型的元素中第一个兄弟元素</li><li>可以指定多个类型</li></ul></td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/809">imooc</a></strong></em></td>
+</tr>
+<tr>
+<td align="center">:last-of-type</td>
+<td align="center">顾名思义</td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/811">imooc</a></strong></em></td>
+</tr>
+<tr>
+<td align="center">:nth-of-type(n)</td>
+<td align="center">顾名思义</td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/810">imooc</a></strong></em></td>
+</tr>
+<tr>
+<td align="center">:nth-last-of-type(n)</td>
+<td align="center">顾名思义</td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/812">imooc</a></strong></em></td>
+</tr>
+<tr>
+<td align="center">:only-child</td>
+<td align="center"><ul><li>匹配父元素仅有一个元素的元素</li><li>如，<code>li:only-child&#123;&#125;</code> 匹配的是仅含一个子元素，且该子元素为 <code>li</code> 的子元素<br/>（也就是这个 <code>li</code> 元素）</li></ul></td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/813">imooc</a></strong></em></td>
+</tr>
+<tr>
+<td align="center">:only-of-type</td>
+<td align="center">与 <code>:only-child</code> 类似，只是把匹配条件改为：指定类型的元素仅有一个</td>
+<td align="center"><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/814">imooc</a></strong></em></td>
+</tr>
+</tbody></table>
+<h2 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h2><h3 id="selection"><a href="#selection" class="headerlink" title="::selection"></a>::selection</h3><p>用来匹配网页上鼠标选择的文本。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::selection</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">color</span>: purple;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="before-和-after"><a href="#before-和-after" class="headerlink" title=":before 和 :after"></a>:before 和 :after</h3><p>用来给元素的前面或后面插入内容，经常和 <code>content</code> 配合使用；<code>content</code> 属性指定插入的内容。</p>
+<h1 id="变形与动画"><a href="#变形与动画" class="headerlink" title="变形与动画"></a>变形与动画</h1><h2 id="rotate"><a href="#rotate" class="headerlink" title="rotate()"></a>rotate()</h2><p>rotate() 函数让元素顺时针旋转，接受度数作为参数。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* rotate(xdeg) 表示顺时针旋转 x 度 */</span></span><br><span class="line">-webkit-<span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">20deg</span>); <span class="comment">/* for chrome */</span></span><br><span class="line">-moz-<span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">20deg</span>); <span class="comment">/* for firefox */</span></span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">20deg</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="skew"><a href="#skew" class="headerlink" title="skew()"></a>skew()</h2><p>skew() 函数能让元素倾斜显示；比如对一个矩形使用 skew(argx,argy)，那么显示的时候的时候，原来垂直于 x 轴的边将沿逆时针方向旋转 argx；而原来垂直于 y 轴的边将沿逆时针方向旋转 argy。（<strong style="color: red">注意：这里的坐标系沿屏幕向右为 x 轴正方向，屏幕向下为 y 轴正方向</strong>）<br>skewX() 仅接受一个参数，且仅是元素在水平方向上扭曲变形；<br>skewY() 仅接受一个参数，且仅是元素在垂直方向上扭曲变形；<br><em><strong><a target="_blank" rel="noopener" href="http://www.imooc.com/code/925">参考链接</a></strong></em></p>
+<h2 id="scale"><a href="#scale" class="headerlink" title="scale()"></a>scale()</h2><p>scale() 函数能让元素缩放显示；它接受两个参数：scale(X,Y)。但是，如果只有一个参数，则对 Y 的缩放倍数是一样的。<br>scaleX() 仅接受一个参数，且表示元素在 X 轴方向上缩放；<br>scaleY() 仅接受一个参数，且表示元素在 Y 轴方向上缩放；</p>
+<h2 id="translate"><a href="#translate" class="headerlink" title="translate()"></a>translate()</h2><p>translate() 函数可以将元素向指定的方向移动，且 <strong style="color: red">不影响页面上的其它组件</strong>。<br>translate() 接受两个参数：translate(X,Y)。也就是朝 X 方向和 Y 方向移动的距离。<br>translateX() 仅接受一个参数，且表示元素在 X 轴方向移动。<br>translateY() 仅接受一个参数，且表示元素在 Y 轴方向移动。<br>例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="matrix"><a href="#matrix" class="headerlink" title="matrix()"></a>matrix()</h2></div></div><nav id="article-nav"><a class="article-nav-link-wrap" id="article-nav-newer" href="/study/computer/os/ubuntu/1/"><strong class="article-nav-caption"></strong><div class="article-nav-title">初识 Ubuntu</div></a><a class="article-nav-link-wrap" id="article-nav-older" href="/study/math/combinatorial-game/SG/"><div class="article-nav-title">组合游戏基础之 SG 函数和 SG 定理</div><strong class="article-nav-caption">></strong></a></nav></article><div id="gitalk-container"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  ...JSON.parse('{"clientID":"be8f64bb869585cb410e","clientSecret":"8c4cb258aecb72ccc1af7aa76380104cace8f816","repo":"LittleClown.github.io","owner":"littleclown","admin":["littleclown","lemon-clown"],"id":"window.location.pathname","distractionFreeMode":false}'),
+})
+
+gitalk.render('gitalk-container')</script></div></div><footer id="footer"><div class="outer"><div id="footer-info"><div class="footer-left">&copy; 2021-06-13 笑着哭的小丑</div><div class="footer-right">青春是低吟浅唱、你是我学不会的歌、</div></div></div></footer></div>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script>var yiliaConfig = {
+  fancybox:     true,
+  mathjax:      true,
+  animate:      true,
+  isHome:       false,
+  isPost:       true,
+  isArchive:    false,
+  isTag:        false,
+  isCategory:   false,
+  open_in_new:  false,
+}
+</script><!-- by SparklingWind-->
+<script src="/js/clipboard.min.js"></script>
+
+<script src="/js/require.js"></script>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+<div id="totop"><img src="/img/scrollup.png" title="返回顶部"></div><div id="goback"><img src="/img/goback.png" title="返回上一位置"></div><!-- by SparklingWind--><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  showMathMenu: false,
+  skipStartupTypeset: true,
+  showProcessingMessage: false,
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  TeX: {
+    equationNumbers: {
+      autoNumber: 'AMS',
+    },
+  },
+  messageStyle: 'none',
+  SVG: {
+    blacker: 1
+  },
+  styles: {
+    '.MathJax_Display': {
+      'user-select': 'none',
+    },
+  },
+});
+
+MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.body])</script><!-- by SparklingWind--><script>var cnzz_protocol = ("https:" == document.location.protocol? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1259020930'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1259020930' type='text/javascript'%3E%3C/script%3E"))</script><!-- by SparklingWind--></div></body></html>

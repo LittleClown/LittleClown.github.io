@@ -1,0 +1,100 @@
+\documentclass[a4paper]{ctexart}
+\usepackage{graphicx,graphpap}
+\usepackage{amsmath,amssymb}
+\usepackage{indentfirst}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{longtable}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{Tabbing}
+\usepackage{caption}
+\usepackage{ifthen}
+\usepackage{lineno}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{calc}
+\usepackage{cite}
+\usepackage{CJK}
+\usepackage{bm}
+
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+% \paperwidth  15 true cm
+% \paperheight 08 true cm
+
+\hypersetup{
+  hyperindex=true,pdfstartview=FitH,
+  bookmarksnumbered=true,bookmarksopen=true,
+  citecolor=violet,urlcolor=violet,linkcolor=violet,
+  colorlinks=true
+}
+\lstset{
+  numbers=left,stepnumber=1,numberstyle=\scriptsize,numbersep=7pt,
+  showstringspaces=false,extendedchars=false,escapeinside=``,tabsize=4,
+  identifierstyle=\color{black},
+  keywordstyle=\color{violet}\bfseries,
+  commentstyle=\color{blue}small\bfseries
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\heiti\color{violet}\bf Expection of String}
+\fancyfoot[C]{\heiti\color{violet}\bf \thepage}
+\fancyfoot[R]{\heiti\color{violet}\bf by Clown}
+
+\section*{\heiti\color{violet}\bf\Huge \href{http://acm.hdu.edu.cn/showproblem.php?pid=5576}{Expection of String}}\par\vskip 3.5em
+\subsection*{\heiti\bf\Large 问题简析}
+为了计算期望，我们直接求出所有的可能。 \par
+对于一个串~$s$，记这个串的计算结果为~$\varphi(s)$，并设串的长度为~$N$。 \par
+因为，每一次交换后会得到多个可能的串，我们用~$\Gamma(k,p)$~表示执行~$k$~次交换后，所有乘号在位置~$p$~处的串构成的可重集合。
+所以我们想要的答案就是~\quad $\displaystyle \sum_{p=1}^N \sum_{s\in\Gamma(K,p)} \varphi(s)$ \par\vskip 1em
+设，$\displaystyle f(k,p,a,b)=\sum_{s\in\Gamma(k,p)} s_a\times s_b$。 \par\vskip 1em
+注意到，
+$\displaystyle \varphi(s)=\left(\sum_{a=1}^{p-1} s_a\times10^{p-a-1}\right)\times\left(\sum_{b=p+1}^N s_b\times10^{N-b}\right)%
+=\sum_{a=1}^{p-1}\sum_{b=p+1}^N s_a\times s_b\times10^{p-a-1+N-b}$ \par\vskip 1em
+所以， \quad 
+$\displaystyle \sum_{p=1}^N\sum_{s\in\Gamma(K,p)} \varphi(s)=\sum_{p=1}^N\sum_{a=1}^{p-1}\sum_{b=p+1}^N f(K,p,a,b)\times10^{p-a-1+N-b}$ \par\vskip 1em
+\noindent 接着，考虑如何进行~$f(k,p,a,b)$~的状态转移。 \par\vskip 1em
+\newcounter{my:tab-counter}[table]
+\setcounter{my:tab-counter}{0}
+\begin{tabbing}
+\hskip 2em \= \hskip 1.5em \= \hskip 1em \= \hskip 4em \= \hskip 1em \= \hskip 4em \= \hskip 1em \= \hskip 4em \kill
+\> \stepcounter{my:tab-counter}\arabic{my:tab-counter}. \> $a$ \> 动 \> $b$ \> 动 \> $p$ \> 动 \\
+\> \stepcounter{my:tab-counter}\arabic{my:tab-counter}. \> $a$ \> 动 \> $b$ \> 动 \> $p$ \> 不动 \\
+\> \stepcounter{my:tab-counter}\arabic{my:tab-counter}. \> $a$ \> 动 \> $b$ \> 不动 \> $p$ \> 动 \\
+\> \stepcounter{my:tab-counter}\arabic{my:tab-counter}. \> $a$ \> 动 \> $b$ \> 不动 \> $p$ \> 不动 \\
+\> \stepcounter{my:tab-counter}\arabic{my:tab-counter}. \> $a$ \> 不动 \> $b$ \> 动 \> $p$ \> 动 \\
+\> \stepcounter{my:tab-counter}\arabic{my:tab-counter}. \> $a$ \> 不动 \> $b$ \> 动 \> $p$ \> 不动 \\
+\> \stepcounter{my:tab-counter}\arabic{my:tab-counter}. \> $a$ \> 不动 \> $b$ \> 不动 \> $p$ \> 动 \\
+\> \stepcounter{my:tab-counter}\arabic{my:tab-counter}. \> $a$ \> 不动 \> $b$ \> 不动 \> $p$ \> 不动 \\
+\end{tabbing} \par
+\noindent 我们逐一进行考虑，则所有情况的和就是~$f(k+1,p,a,b)$。
+\begin{enumerate}[\hskip 2em 1.]
+\item 显然不可行，故贡献为： \quad 0
+\item 即，$a$~上的字符和~$b$~上的字符交换，贡献为： \quad $f(k,p,b,a)$
+\item 即，$a$~上的字符和~$p$~上的字符交换，贡献为： \quad $f(k,a,p,b)$
+\item 即，$a$~上的字符和剩下的~$N-3$~个字符中任一字符交换，贡献为： \quad 
+$\displaystyle \sum_{1\leqslant i\leqslant N,~i\neq a,~i\neq b,~i\neq p} f(k,p,i,b)$ \label{enum:4.}
+\item 即，$b$~上的字符和~$p$~上的字符交换，贡献为： \quad $f(k,b,a,p)$
+\item 即，$b$~上的字符和剩下的~$N-3$~个字符中任一字符交换，贡献为： \quad
+$\displaystyle \sum_{1\leqslant i\leqslant N,~i\neq a,~i\neq b,~i\neq p} f(k,p,a,i)$ \label{enum:6.}
+\item 即，$p$~上的字符和剩下的~$N-3$~个字符中任一字符交换，贡献为： \quad
+$\displaystyle \sum_{1\leqslant i\leqslant N,~i\neq a,~i\neq b,~i\neq p} f(k,i,a,b)$ \label{enum:7.}
+\item 即，在剩下的~$N-3$~个字符中任选两个字符，贡献为： \quad ${N-3 \choose 2}\times f(k,p,a,b)$
+\end{enumerate} \par\vskip 2em
+对于~{\heiti\bf \ref{enum:4.}}、 {\heiti\bf \ref{enum:6.}}、 {\heiti\bf \ref{enum:7.}}~利用前缀和，可以在~$O(1)$~的时间内计算出来。 \par\bigskip
+算法总复杂度为 \quad $O(n^4)$。
+\par\vskip 3em
+\subsection*{\heiti\bf\Large 参考链接}
+\href{http://async.icpc-camp.org/d/304-shanghai-2015-e-expection-of-string/4}
+{\bf http://async.icpc-camp.org/d/304-shanghai-2015-e-expection-of-string/4}
+
+\end{document}
