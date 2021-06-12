@@ -270,6 +270,10 @@ require([], function (){
   $("html,body").click(function(e){
     var a=$("<div class='trangle' />");
     var x=e.pageX,y=e.pageY;
+
+    // 侧边栏处不触发三角形动画
+    if (x < 300) return
+
     a.css({
       "z-index":999,
       "top":y-20,
